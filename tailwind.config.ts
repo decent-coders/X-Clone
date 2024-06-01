@@ -1,7 +1,13 @@
 import type { Config } from "tailwindcss";
 
 export default <Partial<Config>>{
-  content: [],
+  content: [
+    "./pages/**/*.{vue,js,ts}",
+    "./components/**/*.{vue,js,ts}",
+    "./layouts/**/*.{vue,js,ts}",
+    "./plugins/**/*.{js,ts}",
+    "./nuxt.config.ts",
+  ],
   theme: {
     screens: {
       m300: "300px",
@@ -23,7 +29,19 @@ export default <Partial<Config>>{
       xl: "1440px",
       mx: "1920px",
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        system: [
+          "-apple-system",
+          "BlinkMacSystemFont",
+          '"Segoe UI"',
+          "Roboto",
+          "Helvetica",
+          "Arial",
+          "sans-serif",
+        ],
+      },
+    },
   },
   plugins: [],
 };

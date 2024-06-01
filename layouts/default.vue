@@ -4,19 +4,24 @@
     style="font-family: none"
   >
     <!-- Sidebar -->
-    <div id="sidebar" class="w-[22%] h-screen bg-black text-white">
-      <div class="border-r border-gray-600">
+    <div
+      id="sidebar"
+      class="m1100:w-[25%] m1200:w-[22%] h-screen bg-black text-white flex flex-col overflow-y-auto"
+    >
+      <div class="border-r border-gray-600 flex flex-col h-full">
         <aside
           id="logo-sidebar"
-          class="lg:ps-5 h-screen overflow-auto w-full lg:overflow-hidden lg:hover:overflow-auto"
+          class="lg:ps-5 h-full w-full lg:overflow-hidden lg:hover:overflow-auto flex flex-col"
         >
-          <div class="min-h-screen px-2 bg-black">
+          <div class="px-2 bg-black flex flex-col flex-grow">
             <!-- logo -->
             <NuxtLink to="/Home" class="flex px-2 pt-2">
               <img src="/public/x-home.jpg" class="h-10 w-11" alt="X Logo" />
             </NuxtLink>
 
-            <ul class="mt-1 text-2xl">
+            <ul
+              class="mt-1 font-semibold text-xl font-system flex-grow overflow-y-auto"
+            >
               <!-- home -->
               <li>
                 <NuxtLink
@@ -122,7 +127,38 @@
                   <span class="ms-3">Settings</span>
                 </NuxtLink>
               </li>
+              <!-- post button -->
+              <li class="pr-2">
+                <button
+                  class="w-full flex justify-center items-center bg-sky-500 hover:bg-sky-600 rounded-full py-2 font-normal mt-2"
+                >
+                  Post
+                </button>
+              </li>
             </ul>
+            <!--Profile preview-->
+            <div class="mt-2 m1100:mt-auto mb-2">
+              <div
+                class="p-2 flex flex-row justify-start cursor-pointer rounded-full hover:bg-zinc-900 items-center"
+              >
+                <div id="ppImage" class="">
+                  <img
+                    class="h-10 w-10 rounded-full"
+                    src="/public/me.jpeg"
+                    alt=""
+                  />
+                </div>
+                <div id="ppName" class="ms-2">
+                  <h1 class="text-sm tracking-wider font-semibold font-system">
+                    Hridoy Hawladar
+                  </h1>
+                  <h2 class="text-gray-500 tracking-wider">@DecentCoders</h2>
+                </div>
+                <i
+                  class="fa-solid fa-ellipsis ml-auto mr-2 text-gray-400 hover:text-sky-400"
+                ></i>
+              </div>
+            </div>
           </div>
         </aside>
       </div>

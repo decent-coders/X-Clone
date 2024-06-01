@@ -3,3 +3,9 @@
     <img class="h-24 w-24 animate-pulse" src="/x-home.jpg" alt="" />
   </div>
 </template>
+
+<script setup>
+  setTimeout(() => {
+    navigateTo("/home");
+  }, 2000);
+</script>

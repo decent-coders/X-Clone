@@ -1,12 +1,26 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
   modules: [
     "@pinia/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
-    // "@nuxtjs/supabase",
     "@nuxtjs/tailwindcss",
+    "@nuxtjs/google-fonts",
+    // "@nuxtjs/supabase" // Uncomment if you want to use this module
   ],
+
+  googleFonts: {
+    families: {
+      Roboto: true,
+      "Helvetica+Neue": true,
+      "Segoe+UI": true,
+      "San+Francisco": true,
+      Arial: true,
+    },
+  },
+
+  css: [
+    "~/assets/css/tailwind.css", // Include global CSS file
+  ],
+
   app: {
     head: {
       title: "Twitter",
@@ -17,5 +31,9 @@ export default defineNuxtConfig({
         },
       ],
     },
+  },
+
+  devtools: {
+    enabled: true,
   },
 });

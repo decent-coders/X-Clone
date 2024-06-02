@@ -130,7 +130,7 @@
               <!-- post button -->
               <li class="pr-2">
                 <button
-                  class="w-full flex justify-center items-center bg-sky-500 hover:bg-sky-600 rounded-full py-2 font-normal mt-2"
+                  class="w-full flex justify-center items-center bg-sky-600 hover:bg-sky-700 rounded-full py-2 font-normal mt-2"
                 >
                   Post
                 </button>

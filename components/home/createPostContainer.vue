@@ -12,10 +12,10 @@
           style="resize: none"
           placeholder="What is happening?!"
           @input="textAreaHeight"
-          class="bg-transparent w-full outline-none font-system text-lg"
+          class="bg-transparent w-full outline-none mb-1 font-system text-xl"
         ></textarea>
         <p
-          class="text-sky-500 font-bold font-system text-xs pl-2 pb-3 cursor-pointer"
+          class="text-sky-500 font-semibold font-system text-sm pl-2 pb-3 cursor-pointer"
         >
           <i class="fa-solid fa-earth-americas pr-1"></i> Everyone can reply
         </p>
@@ -27,7 +27,7 @@
           <i class="fa-solid fa-location-dot hover:text-sky-600"></i>
         </div>
         <button
-          class="flex justify-center items-center p-2 tracking-wider font-system font-semibold rounded-full px-4 bg-sky-600 hover:bg-sky-700 text-sm"
+          class="flex justify-center items-center p-2 tracking-wider font-system font-semibold rounded-full px-4 bg-sky-600 hover:bg-sky-700 text-base"
         >
           Post
         </button>

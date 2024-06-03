@@ -20,7 +20,7 @@
 
           <!-- subscribe section -->
           <HomeSidebarContainer>
-            <h1 class="font-system font-extrabold mb-1 text-lg tracking-wide">
+            <h1 class="font-system font-bold mb-1 text-lg tracking-wide">
               Subscribe To Premium
             </h1>
             <h2 class="font-system font-normal tracking-wide text-sm">
@@ -28,7 +28,7 @@
               of ads revenue.
             </h2>
             <button
-              class="px-4 tracking-wide flex justify-center items-center bg-sky-600 hover:bg-sky-700 rounded-full py-2 font-bold mt-2 text-sm"
+              class="px-4 tracking-wider flex justify-center items-center bg-sky-600 hover:bg-sky-700 rounded-full py-2 font-bold mt-2 text-base"
             >
               Subscribe
             </button>

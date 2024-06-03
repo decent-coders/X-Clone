@@ -8,11 +8,13 @@
       <div ref="post" class="flex-1">
         <div class="flex justify-between items-center" ref="profileDetails">
           <div>
-            <div id="ppName" class="ms-2 flex pt-1 items-center">
-              <h1 class="text-sm tracking-wider font-extrabold font-system">
+            <div id="ppName" class="ms-2 flex items-center">
+              <h1 class="text-base font-semibold font-system">
                 Hridoy Hawladar
               </h1>
-              <h2 class="text-gray-500 ms-2 tracking-wider">@DecentCoders</h2>
+              <h2 class="text-gray-500 font-system tracking-wider">
+                @DecentCoders
+              </h2>
               <i class="fa-solid fa-circle ms-1 text-[3px] text-gray-500"></i>
               <div class="text-gray-500 ms-1 font-system tracking-wider">
                 19h
@@ -27,7 +29,7 @@
         </div>
         <!-- post text -->
         <div class="" ref="post-text">
-          <h1 class="pl-2 font-system text-gray-200 pr-4 font-light">
+          <h1 class="pl-2 text-base font-normal font-system">
             hahah hehehe huhuhu
           </h1>
         </div>

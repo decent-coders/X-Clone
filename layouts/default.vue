@@ -6,7 +6,7 @@
     <!-- Sidebar -->
     <div
       id="sidebar"
-      class="m1100:w-[25%] m1200:w-[22%] h-screen bg-black text-white flex flex-col overflow-y-auto"
+      class="m1100:w-[25%] m1100:min-w-[250px] m1200:w-[22%] h-screen bg-black text-white flex flex-col overflow-y-auto"
     >
       <div class="border-r border-gray-600 flex flex-col h-full">
         <aside
@@ -149,10 +149,12 @@
                   />
                 </div>
                 <div id="ppName" class="ms-2">
-                  <h1 class="text-sm tracking-wider font-semibold font-system">
+                  <h1 class="text-base font-semibold font-system">
                     Hridoy Hawladar
                   </h1>
-                  <h2 class="text-gray-500 tracking-wider">@DecentCoders</h2>
+                  <h2 class="text-gray-500 font-system tracking-wider">
+                    @DecentCoders
+                  </h2>
                 </div>
                 <i
                   class="fa-solid fa-ellipsis ml-auto mr-2 text-gray-400 hover:text-sky-400"

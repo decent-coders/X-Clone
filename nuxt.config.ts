@@ -2,9 +2,9 @@ export default defineNuxtConfig({
   modules: [
     "@pinia/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
-    "@nuxtjs/tailwindcss",
+    // "@nuxtjs/supabase" //
     "@nuxtjs/google-fonts",
-    // "@nuxtjs/supabase" // Uncomment if you want to use this module
+    "@nuxt/ui",
   ],
 
   googleFonts: {
@@ -17,9 +17,7 @@ export default defineNuxtConfig({
     },
   },
 
-  css: [
-    "~/assets/css/tailwind.css", // Include global CSS file
-  ],
+  css: ["~/assets/css/tailwind.css"],
 
   app: {
     head: {

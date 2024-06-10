@@ -1,7 +1,7 @@
 <template lang="">
   <div class="flex p-3 border-b border-gray-600">
     <div id="ppImage" class="w-10 h-full">
-      <img class="h-10 w-10 rounded-full" src="/public/me.jpeg" alt="" />
+      <img class="h-10 w-10 rounded-full" src="/public/me.webp" alt="" />
     </div>
     <!-- post input -->
     <div class="flex-1">

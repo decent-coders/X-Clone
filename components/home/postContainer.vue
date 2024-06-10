@@ -9,18 +9,6 @@
       <!-- All posts container -->
       <div id="allPosts">
         <HomePosts> </HomePosts>
-        <HomePosts> </HomePosts>
-        <HomePosts> </HomePosts>
-        <HomePosts> </HomePosts>
-        <HomePosts> </HomePosts>
-        <HomePosts> </HomePosts>
-        <HomePosts> </HomePosts>
-        <HomePosts> </HomePosts>
-        <HomePosts> </HomePosts>
-        <HomePosts> </HomePosts>
-        <HomePosts> </HomePosts>
-        <HomePosts> </HomePosts>
-        <HomePosts> </HomePosts>
       </div>
       <!-- ================================= -->
 

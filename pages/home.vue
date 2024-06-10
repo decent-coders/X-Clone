@@ -91,17 +91,17 @@
     {
       name: " Hridoy Hawladar",
       username: "@DecentCoders",
-      pp: "/me.jpeg",
+      pp: "/me.webp",
     },
     {
       name: " Hridoy Hawladar",
       username: "@DecentCoders",
-      pp: "/me.jpeg",
+      pp: "/me.webp",
     },
     {
       name: " Hridoy Hawladar",
       username: "@DecentCoders",
-      pp: "/me.jpeg",
+      pp: "/me.webp",
     },
   ]);
 

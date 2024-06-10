@@ -144,7 +144,7 @@
                 <div id="ppImage" class="">
                   <img
                     class="h-10 w-10 rounded-full"
-                    src="/public/me.jpeg"
+                    src="/public/me.webp"
                     alt=""
                   />
                 </div>

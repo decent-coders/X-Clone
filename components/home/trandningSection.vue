@@ -18,9 +18,19 @@
       </h3>
     </div>
 
-    <i
-      class="fa-solid fa-ellipsis ml-auto mr-2 mt-5 cursor-pointer text-gray-500 hover:text-sky-400"
-    ></i>
+    <div class="ml-auto mt-5 mr-2">
+      <UTooltip :openDelay="1000">
+        <i
+          class="fa-solid fa-ellipsis cursor-pointer text-gray-500 hover:text-sky-400"
+        ></i>
+        <template #text>
+          <span
+            class="font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200"
+            >More</span
+          >
+        </template>
+      </UTooltip>
+    </div>
   </div>
 </template>
 

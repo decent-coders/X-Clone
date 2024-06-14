@@ -26,7 +26,7 @@
               <li>
                 <NuxtLink
                   href="/Home"
-                  class="flex items-center ms-0 py-2 px-4 m-1 text-gray-900 rounded-full dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group font-normal"
+                  class="flex text-white items-center ms-0 py-2 px-4 m-1 rounded-full hover:bg-gray-700 group font-normal"
                   exact-active-class="active"
                 >
                   <div id="icon" class="w-7 flex justify-center">
@@ -39,7 +39,7 @@
               <li>
                 <NuxtLink
                   href="/Explore"
-                  class="flex items-center ms-0 py-2 px-4 m-1 text-gray-900 rounded-full dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group font-normal"
+                  class="flex text-white items-center ms-0 py-2 px-4 m-1 rounded-full hover:bg-gray-700 group font-normal"
                   exact-active-class="active"
                 >
                   <div id="icon" class="w-7 flex justify-center">
@@ -52,7 +52,7 @@
               <li>
                 <NuxtLink
                   href="/Notifications"
-                  class="flex items-center ms-0 py-2 px-4 m-1 text-gray-900 rounded-full dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group font-normal"
+                  class="flex text-white items-center ms-0 py-2 px-4 m-1 rounded-full hover:bg-gray-700 group font-normal"
                   exact-active-class="active"
                 >
                   <div id="icon" class="w-7 flex justify-center">
@@ -65,7 +65,7 @@
               <li>
                 <NuxtLink
                   href="/Messages"
-                  class="flex items-center ms-0 py-2 px-4 m-1 text-gray-900 rounded-full dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group font-normal"
+                  class="flex text-white items-center ms-0 py-2 px-4 m-1 rounded-full hover:bg-gray-700 group font-normal"
                   exact-active-class="active"
                 >
                   <i class="fa-regular fa-envelope w-7"></i>
@@ -76,7 +76,7 @@
               <li>
                 <NuxtLink
                   href="/Communities"
-                  class="flex items-center ms-0 py-2 px-4 m-1 text-gray-900 rounded-full dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group font-normal"
+                  class="flex text-white items-center ms-0 py-2 px-4 m-1 rounded-full hover:bg-gray-700 group font-normal"
                   exact-active-class="active"
                 >
                   <i class="fa-solid fa-users text-lg w-7"></i>
@@ -87,7 +87,7 @@
               <li>
                 <NuxtLink
                   href="/Profile"
-                  class="flex items-center ms-0 py-2 px-4 m-1 text-gray-900 rounded-full dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group font-normal"
+                  class="flex text-white items-center ms-0 py-2 px-4 m-1 rounded-full hover:bg-gray-700 group font-normal"
                   exact-active-class="active"
                 >
                   <i class="fa-solid fa-user-large w-7 ps-1 text-lg"></i>
@@ -98,7 +98,7 @@
               <li>
                 <NuxtLink
                   href="/Membership"
-                  class="flex items-center ms-0 py-2 px-4 m-1 text-gray-900 rounded-full dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group font-normal"
+                  class="flex text-white items-center ms-0 py-2 px-4 m-1 rounded-full hover:bg-gray-700 group font-normal"
                   exact-active-class="active"
                 >
                   <i class="fa-brands fa-web-awesome w-7 text-base"></i>
@@ -109,7 +109,7 @@
               <li>
                 <NuxtLink
                   href="/Monetization"
-                  class="flex items-center ms-0 py-2 px-4 m-1 text-gray-900 rounded-full dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group font-normal"
+                  class="flex text-white items-center ms-0 py-2 px-4 m-1 rounded-full hover:bg-gray-700 group font-normal"
                   exact-active-class="active"
                 >
                   <i class="fa-solid fa-money-check-dollar w-7"></i>
@@ -120,7 +120,7 @@
               <li>
                 <NuxtLink
                   href="/Settings"
-                  class="flex items-center ms-0 py-2 px-4 m-1 text-gray-900 rounded-full dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group font-normal"
+                  class="flex text-white items-center ms-0 py-2 px-4 m-1 rounded-full hover:bg-gray-700 group font-normal"
                   exact-active-class="active"
                 >
                   <i class="fa-solid fa-gear w-7"></i>
@@ -167,7 +167,7 @@
     </div>
 
     <!-- Main Content -->
-    <div id="main-content" class="flex-1 bg-black overflow-y-auto">
+    <div id="main-content" class="flex-1 bg-black overflow-y-scroll">
       <slot />
     </div>
   </div>
@@ -195,6 +195,6 @@
   }
   .active {
     --tw-bg-opacity: 1;
-    background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+    background-color: rgb(var(--color-gray-800) / var(--tw-bg-opacity));
   }
 </style>

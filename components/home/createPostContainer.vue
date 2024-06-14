@@ -21,11 +21,38 @@
         </p>
       </div>
       <div class="m-3 mb-0 flex justify-between items-center cursor-pointer">
-        <div class="text-sky-500 text-lg">
-          <i class="fa-regular fa-image me-4 hover:text-sky-600"></i>
-          <i class="fa-regular fa-face-smile me-4 hover:text-sky-600"></i>
-          <i class="fa-solid fa-location-dot hover:text-sky-600"></i>
+        <div class="text-sky-500 text-lg flex">
+          <UTooltip :openDelay="1000">
+            <i class="fa-regular fa-image me-4 hover:text-sky-600"></i>
+            <template #text>
+              <span
+                class="font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200"
+                >Media</span
+              >
+            </template>
+          </UTooltip>
+
+          <UTooltip :openDelay="1000">
+            <i class="fa-regular fa-face-smile me-4 hover:text-sky-600"></i>
+            <template #text>
+              <span
+                class="font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200"
+                >Emoji</span
+              >
+            </template>
+          </UTooltip>
+
+          <UTooltip :openDelay="1000">
+            <i class="fa-solid fa-location-dot hover:text-sky-600"></i>
+            <template #text>
+              <span
+                class="font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200"
+                >Location</span
+              >
+            </template>
+          </UTooltip>
         </div>
+
         <button
           class="flex justify-center items-center p-2 tracking-wider font-system font-semibold rounded-full px-4 bg-sky-600 hover:bg-sky-700 text-base"
         >

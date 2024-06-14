@@ -110,12 +110,6 @@
 </script>
 
 <style scoped>
-  .scrollable-sidebar {
-    position: relative;
-    top: 0;
-    overflow-y: auto;
-  }
-
   :focus-visible {
     outline: transparent;
   }

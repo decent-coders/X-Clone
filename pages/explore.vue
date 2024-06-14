@@ -1,14 +1,29 @@
-<template lang="">
+<script setup lang="ts">
+  const colorMode = useColorMode();
+  const isDark = computed({
+    get() {
+      return colorMode.value === "dark";
+    },
+    set() {
+      colorMode.preference = colorMode.value === "dark" ? "light" : "dark";
+    },
+  });
+</script>
+<template>
   <NuxtLayout>
-    <div class="flex min-h-screen justify-center items-center bg-black">
-      <div class="animate-pulse">
-        <h1 class="text-6xl font-bold text-white">Welcome to Explore</h1>
-      </div>
-    </div>
+    <ClientOnly>
+      <UButton
+        :icon="
+          isDark ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'
+        "
+        color="gray"
+        variant="ghost"
+        aria-label="Theme"
+        @click="isDark = !isDark"
+      />
+      <template #fallback>
+        <div class="w-8 h-8" />
+      </template>
+    </ClientOnly>
   </NuxtLayout>
 </template>
-<script setup>
-  // definePageMeta({
-  //   layout: "default",
-  // });
-</script>

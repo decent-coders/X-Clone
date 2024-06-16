@@ -33,6 +33,7 @@
 </template>
 
 <script setup lang="">
+  const userStore = useUserStore();
   const activeShowAllPosts = ref(true);
   const activeShowFollowedPosts = ref(false);
 

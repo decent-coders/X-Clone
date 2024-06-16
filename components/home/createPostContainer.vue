@@ -22,33 +22,45 @@
       </div>
       <div class="m-3 mb-0 flex justify-between items-center cursor-pointer">
         <div class="text-sky-500 text-lg flex">
-          <UTooltip :openDelay="1000">
+          <UTooltip
+            :ui="{
+              base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
+              background: 'bg-gray-900',
+              ring: 'ring-gray-800',
+            }"
+            :openDelay="1000"
+          >
             <i class="fa-regular fa-image me-4 hover:text-sky-600"></i>
             <template #text>
-              <span
-                class="font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200"
-                >Media</span
-              >
+              <span>Media</span>
             </template>
           </UTooltip>
 
-          <UTooltip :openDelay="1000">
+          <UTooltip
+            :ui="{
+              base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
+              background: 'bg-gray-900',
+              ring: 'ring-gray-800',
+            }"
+            :openDelay="1000"
+          >
             <i class="fa-regular fa-face-smile me-4 hover:text-sky-600"></i>
             <template #text>
-              <span
-                class="font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200"
-                >Emoji</span
-              >
+              <span>Emoji</span>
             </template>
           </UTooltip>
 
-          <UTooltip :openDelay="1000">
+          <UTooltip
+            :ui="{
+              base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
+              background: 'bg-gray-900',
+              ring: 'ring-gray-800',
+            }"
+            :openDelay="1000"
+          >
             <i class="fa-solid fa-location-dot hover:text-sky-600"></i>
             <template #text>
-              <span
-                class="font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200"
-                >Location</span
-              >
+              <span>Location</span>
             </template>
           </UTooltip>
         </div>

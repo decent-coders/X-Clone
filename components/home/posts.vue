@@ -28,13 +28,17 @@
           <div
             class="rounded-full text-gray-500 cursor-pointer hover:text-sky-400 hover:bg-gray-800 flex items-center justify-center mt-2 h-6 w-6"
           >
-            <UTooltip :openDelay="1000" class="bg-black m-0 p-0">
+            <UTooltip
+              :ui="{
+                base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
+                background: 'bg-gray-900',
+                ring: 'ring-gray-800',
+              }"
+              :openDelay="1000"
+            >
               <i class="fa-solid fa-ellipsis"></i>
               <template class="bg-black m-0 p-0" #text>
-                <span
-                  class="font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200"
-                  >More</span
-                >
+                <span>More</span>
               </template>
             </UTooltip>
           </div>
@@ -52,78 +56,98 @@
         <!-- Post react -->
         <div class="pt-3 flex text-gray-500 justify-between text-lg pr-6">
           <div class="flex items-center">
-            <UTooltip :openDelay="1000">
+            <UTooltip
+              :ui="{
+                base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
+                background: 'bg-gray-900',
+                ring: 'ring-gray-800',
+              }"
+              :openDelay="1000"
+            >
               <div class="flex cursor-pointer hover:text-blue-500 items-center">
                 <i class="fa-regular fa-comment"></i>
                 <p class="m-0 p-0 ps-2 text-sm font-system">11</p>
               </div>
               <template #text>
-                <span
-                  class="font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200"
-                  >Reply</span
-                >
+                <span>Reply</span>
               </template>
             </UTooltip>
           </div>
 
           <div>
-            <UTooltip :openDelay="1000">
+            <UTooltip
+              :ui="{
+                base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
+                background: 'bg-gray-900',
+                ring: 'ring-gray-800',
+              }"
+              :openDelay="1000"
+            >
               <i
                 class="fa-solid fa-repeat cursor-pointer hover:text-green-500"
               ></i>
               <template #text>
-                <span
-                  class="font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200"
-                  >Repost</span
-                >
+                <span>Repost</span>
               </template>
             </UTooltip>
           </div>
 
           <div class="flex cursor-pointer hover:text-red-500 items-center">
-            <UTooltip :openDelay="1000">
+            <UTooltip
+              :ui="{
+                base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
+                background: 'bg-gray-900',
+                ring: 'ring-gray-800',
+              }"
+              :openDelay="1000"
+            >
               <div class="flex cursor-pointer hover:text-red-500 items-center">
                 <i class="fa-regular fa-heart"></i>
                 <p class="ps-2 text-sm font-system">11</p>
               </div>
               <template #text>
-                <span
-                  class="font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200"
-                  >Like</span
-                >
+                <span>Like</span>
               </template>
             </UTooltip>
           </div>
 
           <div class="flex">
             <div>
-              <UTooltip :openDelay="1000">
+              <UTooltip
+                :ui="{
+                  base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
+                  background: 'bg-gray-900',
+                  ring: 'ring-gray-800',
+                }"
+                :openDelay="1000"
+              >
                 <div>
                   <i
                     class="fa-regular fa-bookmark mr-7 cursor-pointer hover:text-blue-400"
                   ></i>
                 </div>
                 <template #text>
-                  <span
-                    class="font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200"
-                    >Bookmark</span
-                  >
+                  <span>Bookmark</span>
                 </template>
               </UTooltip>
             </div>
 
             <div>
-              <UTooltip :openDelay="1000">
+              <UTooltip
+                :ui="{
+                  base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
+                  background: 'bg-gray-900',
+                  ring: 'ring-gray-800',
+                }"
+                :openDelay="1000"
+              >
                 <div>
                   <i
                     class="fa-solid fa-arrow-up-from-bracket cursor-pointer hover:text-blue-400"
                   ></i>
                 </div>
                 <template class="bg-transparent" #text>
-                  <span
-                    class="font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200"
-                    >Share</span
-                  >
+                  <span>Share</span>
                 </template>
               </UTooltip>
             </div>
@@ -133,5 +157,3 @@
     </div>
   </div>
 </template>
-
-<script setup></script>

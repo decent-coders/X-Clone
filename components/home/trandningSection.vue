@@ -19,15 +19,19 @@
     </div>
 
     <div class="ml-auto mt-5 mr-2">
-      <UTooltip :openDelay="1000">
+      <UTooltip
+        :ui="{
+          base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
+          background: 'bg-gray-900',
+          ring: 'ring-gray-800',
+        }"
+        :openDelay="1000"
+      >
         <i
           class="fa-solid fa-ellipsis cursor-pointer text-gray-500 hover:text-sky-400"
         ></i>
         <template #text>
-          <span
-            class="font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200"
-            >More</span
-          >
+          <span>More</span>
         </template>
       </UTooltip>
     </div>

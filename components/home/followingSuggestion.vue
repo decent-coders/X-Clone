@@ -1,8 +1,7 @@
 <template>
   <div ref="followingSuggestion">
     <div class="mt-2 mb-2" ref="suggestionContainer">
-      <NuxtLink
-        to="#"
+      <div
         class="p-2 ps-0 pr-1 flex flex-row justify-between items-center cursor-pointer"
       >
         <div ref="ppDetails" class="flex flex-row justify-start relative">
@@ -23,16 +22,32 @@
           </div>
         </div>
         <button
-          class="rounded-full px-4 h-8 bg-slate-200 hover:bg-slate-300 font-bold text-black text-sm tracking-[1px] z-10 absolute right-3"
+          class="rounded-full flex items-center justify-center px-4 h-8 bg-slate-200 hover:bg-slate-300 font-bold text-black text-sm tracking-[1px] z-10 absolute right-3 font-system"
+          :class="{
+            'text-gray-300 border h-9 border-gray-600 bg-zinc-950  hover:bg-zinc-900':
+              follow,
+          }"
           ref="followButton"
+          @click="handleFollowing"
         >
-          Follow
+          {{ followMssg }}
         </button>
-      </NuxtLink>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
   const props = defineProps(["name", "username", "pp"]);
+  const follow = ref(false);
+  const followMssg = ref("Follow");
+  const handleFollowing = () => {
+    if (!follow.value) {
+      follow.value = true;
+      followMssg.value = "Following";
+    } else {
+      follow.value = false;
+      followMssg.value = "Follow";
+    }
+  };
 </script>

@@ -28,7 +28,7 @@ export default <Partial<Config>>{
       md: "768px",
       lg: "976px",
       xl: "1440px",
-      mx: "1920px",
+      mxx: "1920px",
     },
     extend: {
       fontFamily: {

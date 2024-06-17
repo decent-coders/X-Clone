@@ -2,23 +2,229 @@
   <div class="p-3 border-b border-gray-600">
     <div class="flex justify-start">
       <div id="ppImage" class="w-10 h-full">
-        <img
-          class="h-10 w-10 rounded-full cursor-pointer"
-          src="/public/me.webp"
-          alt=""
-        />
+        <UPopover
+          mode="hover"
+          :ui="{
+            background: 'bg-gray-900',
+            ring: 'ring-gray-600',
+            rounded: 'rounded-xl',
+          }"
+        >
+          <img
+            class="h-10 w-10 rounded-full cursor-pointer"
+            src="/public/me.webp"
+            alt=""
+          />
+          <template #panel>
+            <div class="w-72 p-4 bg-black cursor-auto">
+              <div class="">
+                <div class="flex justify-between">
+                  <div id="ppImage" class="">
+                    <img
+                      class="h-16 mb-2 w-16 rounded-full cursor-pointer"
+                      src="/public/me.webp"
+                      alt=""
+                    />
+                  </div>
+
+                  <button
+                    class="rounded-full px-4 h-8 bg-slate-200 hover:bg-slate-300 font-bold text-black text-sm tracking-[1px] z-10 absolute right-3 font-system"
+                    :class="{
+                      'text-gray-300 border h-9 border-gray-600 bg-zinc-950  hover:bg-zinc-900':
+                        follow,
+                    }"
+                    ref="followButton"
+                    @click="handleFollowing"
+                  >
+                    {{ followMssg }}
+                  </button>
+                </div>
+                <div id="ppName" class="mb-2">
+                  <h1
+                    class="font-semibold font-system cursor-pointer hover:underline"
+                  >
+                    Hridoy Hawladar
+                  </h1>
+                  <h2
+                    class="text-gray-500 hover:underline font-system tracking-wider cursor-pointer"
+                  >
+                    @DecentCoders
+                  </h2>
+                </div>
+                <div id="ppbio" class="font-system font-normal cursor-text">
+                  Web Developer, I love building things for the web and sharing
+                  my knowledge with others. Let's connect!!!
+                </div>
+                <div id="followDetails" class="mt-2 flex justify-start">
+                  <div
+                    class="font-system text-gray-500 hover:border-b border-white font-thin cursor-pointer h-5 leading-none"
+                  >
+                    <span class="font-semibold text-gray-200 mr-1">420</span
+                    >Following
+                  </div>
+                  <div
+                    class="font-system text-gray-500 hover:border-b border-white font-thin cursor-pointer ml-4 h-5 leading-none"
+                  >
+                    <span class="font-semibold text-gray-200 mr-1">420</span
+                    >Followers
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </UPopover>
       </div>
 
       <div ref="post" class="flex-1">
         <div class="flex justify-between items-center" ref="profileDetails">
           <div>
             <div id="ppName" class="ms-2 flex items-center cursor-pointer">
-              <h1 class="text-base font-semibold font-system">
-                Hridoy Hawladar
-              </h1>
-              <h2 class="text-gray-500 ps-2 font-system tracking-wider">
-                @DecentCoders
-              </h2>
+              <UPopover
+                mode="hover"
+                :ui="{
+                  background: 'bg-gray-900',
+                  ring: 'ring-gray-600',
+                  rounded: 'rounded-xl',
+                }"
+              >
+                <h1 class="text-base font-semibold font-system">
+                  Hridoy Hawladar
+                </h1>
+                <template #panel>
+                  <div class="w-72 p-4 bg-black cursor-auto">
+                    <div class="">
+                      <div class="flex justify-between">
+                        <div id="ppImage" class="">
+                          <img
+                            class="h-16 mb-2 w-16 rounded-full cursor-pointer"
+                            src="/public/me.webp"
+                            alt=""
+                          />
+                        </div>
+                        <button
+                          class="rounded-full px-4 h-8 bg-slate-200 hover:bg-slate-300 font-bold text-black text-sm tracking-[1px] z-10 absolute right-3 font-system"
+                          :class="{
+                            'text-gray-300 border h-9 border-gray-600 bg-zinc-950  hover:bg-zinc-900':
+                              follow,
+                          }"
+                          ref="followButton"
+                          @click="handleFollowing"
+                        >
+                          {{ followMssg }}
+                        </button>
+                      </div>
+                      <div id="ppName" class="mb-2">
+                        <h1
+                          class="font-semibold font-system cursor-pointer hover:underline"
+                        >
+                          Hridoy Hawladar
+                        </h1>
+                        <h2
+                          class="text-gray-500 hover:underline font-system tracking-wider cursor-pointer"
+                        >
+                          @DecentCoders
+                        </h2>
+                      </div>
+                      <div
+                        id="ppbio"
+                        class="font-system font-normal cursor-text"
+                      >
+                        Web Developer, I love building things for the web and
+                        sharing my knowledge with others. Let's connect!!!
+                      </div>
+                      <div id="followDetails" class="mt-2 flex justify-start">
+                        <div
+                          class="font-system text-gray-500 hover:border-b border-white font-thin cursor-pointer h-5 leading-none"
+                        >
+                          <span class="font-semibold text-gray-200 mr-1"
+                            >420</span
+                          >Following
+                        </div>
+                        <div
+                          class="font-system text-gray-500 hover:border-b border-white font-thin cursor-pointer ml-4 h-5 leading-none"
+                        >
+                          <span class="font-semibold text-gray-200 mr-1"
+                            >420</span
+                          >Followers
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+              </UPopover>
+              <UPopover
+                mode="hover"
+                :ui="{
+                  background: 'bg-gray-900',
+                  ring: 'ring-gray-600',
+                  rounded: 'rounded-xl',
+                }"
+              >
+                <h2 class="text-gray-500 ps-2 font-system tracking-wider">
+                  @DecentCoders
+                </h2>
+                <template #panel>
+                  <div class="w-72 p-4 bg-black cursor-auto">
+                    <div class="">
+                      <div class="flex justify-between">
+                        <div id="ppImage" class="">
+                          <img
+                            class="h-16 mb-2 w-16 rounded-full cursor-pointer"
+                            src="/public/me.webp"
+                            alt=""
+                          />
+                        </div>
+                        <button
+                          class="rounded-full px-4 h-8 bg-slate-200 hover:bg-slate-300 font-bold text-black text-sm tracking-[1px] z-10 absolute right-3 font-system"
+                          :class="{
+                            'text-gray-300 border h-9 border-gray-600 bg-zinc-950  hover:bg-zinc-900':
+                              follow,
+                          }"
+                          ref="followButton"
+                          @click="handleFollowing"
+                        >
+                          {{ followMssg }}
+                        </button>
+                      </div>
+                      <div id="ppName" class="mb-2">
+                        <h1
+                          class="font-semibold font-system cursor-pointer hover:underline"
+                        >
+                          Hridoy Hawladar
+                        </h1>
+                        <h2
+                          class="text-gray-500 hover:underline font-system tracking-wider cursor-pointer"
+                        >
+                          @DecentCoders
+                        </h2>
+                      </div>
+                      <div
+                        id="ppbio"
+                        class="font-system font-normal cursor-text"
+                      >
+                        Web Developer, I love building things for the web and
+                        sharing my knowledge with others. Let's connect!!!
+                      </div>
+                      <div id="followDetails" class="mt-2 flex justify-start">
+                        <div
+                          class="font-system text-gray-500 hover:border-b border-white font-thin cursor-pointer h-5 leading-none"
+                        >
+                          <span class="font-semibold text-gray-200 mr-1"
+                            >420</span
+                          >Following
+                        </div>
+                        <div
+                          class="font-system text-gray-500 hover:border-b border-white font-thin cursor-pointer ml-4 h-5 leading-none"
+                        >
+                          <span class="font-semibold text-gray-200 mr-1"
+                            >420</span
+                          >Followers
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+              </UPopover>
               <i class="fa-solid fa-circle ms-1 text-[3px] text-gray-500"></i>
               <div class="text-gray-500 ms-1 font-system tracking-wider">
                 19h
@@ -73,7 +279,6 @@
               </template>
             </UTooltip>
           </div>
-
           <div>
             <UTooltip
               :ui="{
@@ -91,7 +296,6 @@
               </template>
             </UTooltip>
           </div>
-
           <div class="flex cursor-pointer hover:text-red-500 items-center">
             <UTooltip
               :ui="{
@@ -110,7 +314,6 @@
               </template>
             </UTooltip>
           </div>
-
           <div class="flex">
             <div>
               <UTooltip
@@ -131,7 +334,6 @@
                 </template>
               </UTooltip>
             </div>
-
             <div>
               <UTooltip
                 :ui="{
@@ -157,3 +359,18 @@
     </div>
   </div>
 </template>
+
+<script setup>
+  const follow = ref(false);
+  const followMssg = ref("Follow");
+  const handleFollowing = () => {
+    if (!follow.value) {
+      follow.value = true;
+      followMssg.value = "Following";
+      window.open("https://x.com/DecentCoders", "_blank");
+    } else {
+      follow.value = false;
+      followMssg.value = "Follow";
+    }
+  };
+</script>

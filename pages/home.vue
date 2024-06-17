@@ -11,7 +11,7 @@
           <div id="searchInput">
             <div>
               <input
-                class="w-full bg-zinc-800 rounded-full p-2 font-system mb-4 focus-within:ring-1 focus-within:ring-sky-500"
+                class="w-full bg-zinc-800 rounded-full p-2 font-system mb-4 focus-within:ring-1 focus-within:ring-sky-500 pl-4"
                 placeholder="Search"
                 type="text"
               />

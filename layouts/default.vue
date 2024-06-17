@@ -106,7 +106,7 @@
                 </NuxtLink>
               </li>
               <!-- Monetization -->
-              <li>
+              <!-- <li>
                 <NuxtLink
                   href="/Monetization"
                   class="flex text-white items-center ms-0 py-2 px-4 m-1 rounded-full hover:bg-gray-700 group font-normal"
@@ -115,7 +115,7 @@
                   <i class="fa-solid fa-money-check-dollar w-7"></i>
                   <span class="ms-3">Monetization</span>
                 </NuxtLink>
-              </li>
+              </li> -->
               <!-- Settings -->
               <li>
                 <NuxtLink

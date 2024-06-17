@@ -14,6 +14,10 @@
           @input="textAreaHeight"
           class="bg-transparent w-full outline-none mb-1 font-system text-xl"
         ></textarea>
+        <!-- Image preview -->
+        <div v-if="fileURL" class="my-3">
+          <img :src="fileURL" alt="Image Preview" class="rounded-3xl" />
+        </div>
         <p
           class="text-sky-500 font-semibold font-system text-sm pl-2 pb-3 cursor-pointer"
         >
@@ -30,7 +34,16 @@
             }"
             :openDelay="1000"
           >
-            <i class="fa-regular fa-image me-4 hover:text-sky-600"></i>
+            <div ref="fileInput" @click="triggerFileInput">
+              <i class="fa-regular fa-image me-4 hover:text-sky-600"></i>
+              <input
+                type="file"
+                id="file"
+                ref="file"
+                style="display: none"
+                @change="handleFileChange"
+              />
+            </div>
             <template #text>
               <span>Media</span>
             </template>
@@ -44,7 +57,9 @@
             }"
             :openDelay="1000"
           >
-            <i class="fa-regular fa-face-smile me-4 hover:text-sky-600"></i>
+            <div ref="EmojiInput">
+              <i class="fa-regular fa-face-smile me-4 hover:text-sky-600"></i>
+            </div>
             <template #text>
               <span>Emoji</span>
             </template>
@@ -76,9 +91,27 @@
 </template>
 
 <script setup lang="">
+  const fileURL = ref(null);
+
   const textAreaHeight = () => {
     var textarea = document.getElementById("textarea");
     textarea.style.height = "auto";
     textarea.style.height = textarea.scrollHeight + "px";
+  };
+
+  const triggerFileInput = () => {
+    const fileInput = document.getElementById("file");
+    fileInput.click();
+  };
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        fileURL.value = reader.result;
+      };
+      reader.readAsDataURL(file);
+    }
   };
 </script>

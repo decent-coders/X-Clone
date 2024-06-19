@@ -234,19 +234,23 @@
           <div
             class="rounded-full text-gray-500 cursor-pointer hover:text-sky-400 hover:bg-gray-800 flex items-center justify-center mt-2 h-6 w-6"
           >
-            <UTooltip
+            <UPopover
               :ui="{
-                base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
                 background: 'bg-gray-900',
-                ring: 'ring-gray-800',
+                ring: 'ring-gray-600',
+                rounded: 'rounded-xl',
               }"
-              :openDelay="1000"
             >
               <i class="fa-solid fa-ellipsis"></i>
-              <template class="bg-black m-0 p-0" #text>
-                <span>More</span>
+
+              <template #panel>
+                <div
+                  class="w-36 text-sm text-gray-400 px-4 py-2 bg-black cursor-default font-system text-center ring ring-gray-600"
+                >
+                  <h1>Haven't added this feature Sorry!!</h1>
+                </div>
               </template>
-            </UTooltip>
+            </UPopover>
           </div>
         </div>
 

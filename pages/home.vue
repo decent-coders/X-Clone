@@ -21,24 +21,27 @@
           <!-- subscribe section -->
           <HomeSidebarContainer>
             <h1 class="font-system font-bold mb-1 text-lg tracking-wide">
-              Subscribe To Premium
+              {{ premiumHeading }}
             </h1>
             <h2 class="font-system font-normal tracking-wide text-sm">
-              Subscribe to unlock new features and if eligible, receive a share
-              of ads revenue.
+              {{ premiumDetails }}
             </h2>
             <button
               class="px-4 tracking-wider flex justify-center items-center bg-sky-600 hover:bg-sky-700 rounded-full py-2 font-bold mt-2 text-base"
+              :class="{
+                'text-gray-300 border  border-gray-600 bg-zinc-950  hover:bg-zinc-900':
+                  Subscribe,
+              }"
+              ref="followButton"
+              @click="handleSubscribe"
             >
-              Subscribe
+              {{ SubscribeMssg }}
             </button>
           </HomeSidebarContainer>
 
           <!-- trending section -->
           <HomeSidebarContainer>
-            <h1 class="font-system font-extrabold tracking-wider mb-4">
-              Trends for you
-            </h1>
+            <h1 class="font-bold text-lg tracking-wider">Trends for you</h1>
             <!-- trending contents -->
             <HomeTrandningSection
               v-for="trend in trends"
@@ -60,11 +63,26 @@
               :pp="follow.pp"
             >
             </HomeFollowingSuggestion>
-            <nuxt-link to="#">
+
+            <UPopover
+              :ui="{
+                background: 'bg-gray-900',
+                ring: 'ring-gray-600',
+                rounded: 'rounded-xl',
+              }"
+            >
               <h2 class="text-sky-500 font-system hover:text-sky-400">
                 Show more
               </h2>
-            </nuxt-link>
+
+              <template #panel>
+                <div
+                  class="w-36 text-sm text-gray-400 px-4 py-2 bg-black cursor-default font-system text-center ring ring-gray-600"
+                >
+                  <h1>Haven't added this feature Sorry!!</h1>
+                </div>
+              </template>
+            </UPopover>
           </HomeSidebarContainer>
           <h1
             class="font-system p-4 text-gray-500 text-sm tracking-wider"
@@ -107,6 +125,29 @@
 
   const sidebar = ref(null);
   const followSection = ref(null);
+
+  const Subscribe = ref(false);
+  const SubscribeMssg = ref("Subscribe");
+  const premiumHeading = ref(" Subscribe To Premium");
+  const premiumDetails = ref(
+    "Subscribe to unlock new features and if eligible, receive a shareof ads revenue."
+  );
+
+  const handleSubscribe = () => {
+    if (!Subscribe.value) {
+      Subscribe.value = true;
+      SubscribeMssg.value = "Subscribed";
+      premiumHeading.value = "Add free user";
+      premiumDetails.value =
+        "Enjoy our premium service without ads, Thank you!";
+    } else {
+      Subscribe.value = false;
+      SubscribeMssg.value = "Subscribe";
+      premiumHeading.value = "Subscribe To Premium";
+      premiumDetails.value =
+        "Subscribe to unlock new features and if eligible, receive a shareof ads revenue.";
+    }
+  };
 </script>
 
 <style scoped>

@@ -137,30 +137,57 @@
               </li>
             </ul>
             <!--Profile preview-->
-            <div class="mt-2 m1100:mt-auto mb-2">
-              <div
-                class="p-2 flex flex-row justify-start cursor-pointer rounded-full hover:bg-zinc-900 items-center"
-              >
-                <div id="ppImage" class="">
-                  <img
-                    class="h-10 w-10 rounded-full"
-                    src="/public/me.webp"
-                    alt=""
-                  />
+            <UPopover
+              class="w-full"
+              mode="click"
+              :ui="{
+                background: 'bg-gray-900',
+                ring: 'ring-gray-500 dark:ring-gray-500 ring-1 shadow-[rgba(233,233,233,.2)_0px_0px_0px_4px]',
+                rounded: 'rounded-xl',
+              }"
+              :popper="{ arrow: true }"
+              @click.stop="handleClick"
+            >
+              <div class="mt-2 m1100:mt-auto mb-2 w-full">
+                <div
+                  class="p-2 flex flex-row justify-start cursor-pointer rounded-full hover:bg-zinc-900 items-center"
+                >
+                  <div id="ppImage" class="">
+                    <img
+                      class="h-10 w-10 rounded-full"
+                      src="/public/me.webp"
+                      alt=""
+                    />
+                  </div>
+                  <div id="ppName" class="ms-2">
+                    <h1 class="text-base font-semibold font-system">
+                      Hridoy Hawladar
+                    </h1>
+                    <h2 class="text-gray-500 font-system tracking-wider">
+                      @DecentCoders
+                    </h2>
+                  </div>
+
+                  <i
+                    class="fa-solid fa-ellipsis ml-auto mr-2 text-gray-400 hover:text-sky-400"
+                  ></i>
                 </div>
-                <div id="ppName" class="ms-2">
-                  <h1 class="text-base font-semibold font-system">
-                    Hridoy Hawladar
-                  </h1>
-                  <h2 class="text-gray-500 font-system tracking-wider">
-                    @DecentCoders
-                  </h2>
-                </div>
-                <i
-                  class="fa-solid fa-ellipsis ml-auto mr-2 text-gray-400 hover:text-sky-400"
-                ></i>
               </div>
-            </div>
+              <template #panel>
+                <div
+                  class="w-full py-3 bg-black cursor-pointer font-system ring-1 ring-gray-600"
+                >
+                  <ol class="text-sm font-semibold">
+                    <li class="hover:bg-zinc-900 font-system p-2 px-4">
+                      Add Existing Account
+                    </li>
+                    <li class="mt-1 hover:bg-zinc-900 p-2 px-4 font-system">
+                      <h1>Log Out @DecentCoders</h1>
+                    </li>
+                  </ol>
+                </div>
+              </template>
+            </UPopover>
           </div>
         </aside>
       </div>
@@ -173,7 +200,11 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+  const handleClick = () => {
+    navigateTo("/");
+  };
+</script>
 
 <style>
   ::-webkit-scrollbar {

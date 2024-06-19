@@ -2,6 +2,7 @@ export default defineNuxtConfig({
   modules: [
     "@pinia/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
+    // "@nuxtjs/supabase",
     "@nuxtjs/google-fonts",
     "@nuxt/ui",
   ],
@@ -16,7 +17,10 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ["~/assets/css/tailwind.css"],
+  css: [
+    "~/assets/css/tailwind.css",
+    // "emoji-picker-element/theme-light.css" // Removed as previously instructed
+  ],
 
   app: {
     head: {

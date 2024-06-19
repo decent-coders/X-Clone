@@ -4,23 +4,39 @@
       <div
         class="p-2 ps-0 pr-1 flex flex-row justify-between items-center cursor-pointer"
       >
-        <div ref="ppDetails" class="flex flex-row justify-start relative">
-          <div class="pp-image">
-            <img
-              class="h-10 w-10 rounded-full"
-              :src="pp"
-              :alt="`${name}'s profile picture`"
-            />
+        <UPopover
+          :ui="{
+            background: 'bg-gray-900',
+            ring: 'ring-gray-600',
+            rounded: 'rounded-xl',
+          }"
+        >
+          <div ref="ppDetails" class="flex flex-row justify-start relative">
+            <div class="pp-image">
+              <img
+                class="h-10 w-10 rounded-full"
+                :src="pp"
+                :alt="`${name}'s profile picture`"
+              />
+            </div>
+            <div class="pp-name ms-2">
+              <h1
+                class="text-sm tracking-wider font-semibold font-system hover:underline"
+              >
+                {{ name }}
+              </h1>
+              <h2 class="text-gray-500 tracking-wider">{{ username }}</h2>
+            </div>
           </div>
-          <div class="pp-name ms-2">
-            <h1
-              class="text-sm tracking-wider font-semibold font-system hover:underline"
+
+          <template #panel>
+            <div
+              class="w-36 text-sm text-gray-400 px-4 py-2 bg-black cursor-default font-system text-center ring ring-gray-600"
             >
-              {{ name }}
-            </h1>
-            <h2 class="text-gray-500 tracking-wider">{{ username }}</h2>
-          </div>
-        </div>
+              <h1>Haven't added this feature Sorry!!</h1>
+            </div>
+          </template>
+        </UPopover>
         <button
           class="rounded-full flex items-center justify-center px-4 h-8 bg-slate-200 hover:bg-slate-300 font-bold text-black text-sm tracking-[1px] z-10 absolute right-3 font-system"
           :class="{

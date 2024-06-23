@@ -12,9 +12,9 @@
           style="resize: none"
           placeholder="What is happening?!"
           @input="textAreaHeight"
+          v-model="postText"
           class="bg-transparent w-full outline-none mb-1 font-system text-xl"
         ></textarea>
-        <!-- Image preview -->
         <div v-if="fileURL" class="my-3">
           <img :src="fileURL" alt="Image Preview" class="rounded-3xl" />
         </div>
@@ -66,7 +66,6 @@
               <span>Media</span>
             </template>
           </UTooltip>
-
           <UTooltip
             :ui="{
               base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
@@ -82,7 +81,6 @@
               <span>Emoji</span>
             </template>
           </UTooltip>
-
           <UPopover
             :ui="{
               background: 'bg-gray-900',
@@ -104,18 +102,16 @@
 
         <button
           class="flex justify-center items-center p-2 tracking-wider font-system font-semibold rounded-full px-4 bg-sky-600 hover:bg-sky-700 text-base"
+          @click="emitPost"
         >
           Post
         </button>
       </div>
-      <!-- emoji skip -->
       <div
         class="h-screen w-screen fixed left-0 top-0 z-99"
         v-if="showEmojiPicker"
         @click="handleSkipEmoji"
       ></div>
-
-      <!-- Emoji Picker -->
       <div
         v-if="showEmojiPicker"
         ref="emojiPicker"
@@ -128,16 +124,16 @@
 </template>
 
 <script setup>
-  import { ref, onMounted, onBeforeUnmount } from "vue";
+  const emit = defineEmits(["handlePost"]);
 
-  const fileURL = ref(null);
+  const fileURL = ref("");
   const showEmojiPicker = ref(false);
-  const emojiPickerRef = ref(null);
+  const postText = ref("");
 
   const textAreaHeight = () => {
-    var textarea = document.getElementById("textarea");
+    const textarea = document.getElementById("textarea");
     textarea.style.height = "auto";
-    textarea.style.height = textarea.scrollHeight + "px";
+    textarea.style.height = `${textarea.scrollHeight}px`;
   };
 
   const triggerFileInput = () => {
@@ -159,36 +155,32 @@
   const toggleEmojiPicker = () => {
     showEmojiPicker.value = !showEmojiPicker.value;
   };
+
   const handleSkipEmoji = () => {
-    showEmojiPicker.value = !showEmojiPicker.value;
+    showEmojiPicker.value = false;
   };
 
   const addEmoji = (event) => {
-    const textarea = document.getElementById("textarea");
-    const cursorPosition = textarea.selectionStart;
-    const textBeforeCursor = textarea.value.substring(0, cursorPosition);
-    const textAfterCursor = textarea.value.substring(cursorPosition);
-    textarea.value = textBeforeCursor + event.detail.unicode + textAfterCursor;
-    textarea.focus();
+    const emoji = event.detail.unicode;
+    const cursorPosition = postText.value.length;
+    postText.value =
+      postText.value.slice(0, cursorPosition) +
+      emoji +
+      postText.value.slice(cursorPosition);
   };
 
-  const handleClickOutside = (event) => {
-    if (emojiPickerRef.value && !emojiPickerRef.value.contains(event.target)) {
-      showEmojiPicker.value = false;
+  const emitPost = () => {
+    if (!postText.value && !fileURL.value) {
+      alert("Post text or file URL cannot be empty");
+      return;
     }
+    emit("handlePost", { postText: postText.value, fileURL: fileURL.value });
+    postText.value = "";
+    fileURL.value = "";
   };
-
-  onMounted(() => {
-    document.addEventListener("click", handleClickOutside);
-  });
-
-  onBeforeUnmount(() => {
-    document.removeEventListener("click", handleClickOutside);
-  });
 </script>
 
 <style>
-  /* Add some basic styles for the emoji picker */
   emoji-picker {
     width: 100%;
     max-width: 320px;

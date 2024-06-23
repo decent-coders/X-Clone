@@ -41,7 +41,9 @@
 
           <!-- trending section -->
           <HomeSidebarContainer>
-            <h1 class="font-bold text-lg tracking-wider">Trends for you</h1>
+            <h1 class="font-bold text-lg tracking-wider mb-4">
+              Trends for you
+            </h1>
             <!-- trending contents -->
             <HomeTrandningSection
               v-for="trend in trends"

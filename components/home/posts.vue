@@ -226,7 +226,10 @@
                 </template>
               </UPopover>
               <i class="fa-solid fa-circle ms-1 text-[3px] text-gray-500"></i>
-              <div class="text-gray-500 ms-1 font-system tracking-wider">
+              <div
+                class="text-gray-500 ms-1 font-system tracking-wider"
+                ref="postTime"
+              >
                 19h
               </div>
             </div>
@@ -255,17 +258,17 @@
         </div>
 
         <!-- post text -->
-        <div class="" ref="post-text">
-          <h1 class="pl-2 text-base font-normal font-system">Hello !!!!</h1>
+        <div class="" ref="postText">
+          <h1 class="pl-2 text-base font-normal font-system">{{ postText }}</h1>
         </div>
         <!-- post file -->
-        <div class="pr-4 mt-2" ref="post-file">
-          <img class="rounded-3xl" src="/public/me.webp" alt="" />
+        <div class="pr-4 mt-2" ref="fileURL">
+          <img class="rounded-3xl" :src="fileUrl" alt="" />
         </div>
-
         <!-- Post react -->
         <div class="pt-3 flex text-gray-500 justify-between text-lg pr-6">
           <div class="flex items-center">
+            <!-- UTooltip Reply -->
             <UTooltip
               :ui="{
                 base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
@@ -284,6 +287,7 @@
             </UTooltip>
           </div>
           <div>
+            <!-- UTooltip Repost -->
             <UTooltip
               :ui="{
                 base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
@@ -301,6 +305,7 @@
             </UTooltip>
           </div>
           <div class="flex cursor-pointer hover:text-red-500 items-center">
+            <!-- UTooltip Like -->
             <UTooltip
               :ui="{
                 base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
@@ -320,6 +325,7 @@
           </div>
           <div class="flex">
             <div>
+              <!-- UTooltip Bookmark -->
               <UTooltip
                 :ui="{
                   base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
@@ -339,6 +345,7 @@
               </UTooltip>
             </div>
             <div>
+              <!-- UTooltip Share -->
               <UTooltip
                 :ui="{
                   base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
@@ -367,6 +374,7 @@
 <script setup>
   const follow = ref(false);
   const followMssg = ref("Follow");
+
   const handleFollowing = () => {
     if (!follow.value) {
       follow.value = true;
@@ -377,4 +385,16 @@
       followMssg.value = "Follow";
     }
   };
+
+  // Define props
+  const props = defineProps({
+    postText: {
+      type: String,
+      required: true,
+    },
+    fileUrl: {
+      type: String,
+      required: true,
+    },
+  });
 </script>

@@ -16,7 +16,11 @@
           class="bg-transparent w-full outline-none mb-1 font-system text-xl"
         ></textarea>
         <div v-if="fileURL" class="my-3">
-          <img :src="fileURL" alt="Image Preview" class="rounded-3xl" />
+          <img
+            :src="fileURL"
+            alt="Image Preview"
+            class="rounded-3xl mx-auto max-h-[45vh]"
+          />
         </div>
 
         <UPopover

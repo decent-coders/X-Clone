@@ -110,6 +110,18 @@
         >
           Post
         </button>
+        <!-- post warning -->
+        <HomePostErrorWArning
+          v-if="postError"
+          class="h-screen w-screen fixed left-0 top-14 z-99 flex justify-center"
+        >
+          <button
+            class="flex justify-center items-center p-2 tracking-wider font-system font-semibold rounded-full px-4 bg-red-600 hover:bg-red-700 text-base mx-auto mt-3"
+            @click="handlePosteror"
+          >
+            Ok
+          </button>
+        </HomePostErrorWArning>
       </div>
       <div
         class="h-screen w-screen fixed left-0 top-0 z-99"
@@ -129,7 +141,7 @@
 
 <script setup>
   const emit = defineEmits(["handlePost"]);
-
+  const postError = ref(false);
   const fileURL = ref("");
   const showEmojiPicker = ref(false);
   const postText = ref("");
@@ -175,12 +187,15 @@
 
   const emitPost = () => {
     if (!postText.value && !fileURL.value) {
-      alert("Post text or file URL cannot be empty");
+      postError.value = true;
       return;
     }
     emit("handlePost", { postText: postText.value, fileURL: fileURL.value });
     postText.value = "";
     fileURL.value = "";
+  };
+  const handlePosteror = () => {
+    postError.value = false;
   };
 </script>
 

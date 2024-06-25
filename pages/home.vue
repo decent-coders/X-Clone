@@ -143,11 +143,11 @@
       premiumDetails.value =
         "Enjoy our premium service without ads, Thank you!";
     } else {
-      Subscribe.value = false;
-      SubscribeMssg.value = "Subscribe";
-      premiumHeading.value = "Subscribe To Premium";
-      premiumDetails.value =
-        "Subscribe to unlock new features and if eligible, receive a shareof ads revenue.";
+      // Subscribe.value = false;
+      // SubscribeMssg.value = "Subscribe";
+      // premiumHeading.value = "Subscribe To Premium";
+      // premiumDetails.value =
+      //   "Subscribe to unlock new features and if eligible, receive a shareof ads revenue.";
     }
   };
 </script>

@@ -239,18 +239,22 @@
           >
             <UPopover
               :ui="{
-                background: 'bg-gray-900',
-                ring: 'ring-gray-600',
-                rounded: 'rounded-xl',
+                background: 'bg-transparent ',
+                ring: ' ring-0 border border-gray-600',
+                rounded: 'rounded-xl ',
               }"
             >
               <i class="fa-solid fa-ellipsis"></i>
 
               <template #panel>
                 <div
-                  class="w-36 text-sm text-gray-400 px-4 py-2 bg-black cursor-default font-system text-center ring ring-gray-600"
+                  class="px-1 bg-black py-1 font-system text-center flex cursor-pointer hover:bg-zinc-900"
+                  @click="handlePostDelete"
                 >
-                  <h1>Haven't added this feature Sorry!!</h1>
+                  <h1 class="text-gray-300 pl-3 pr-2">Delete</h1>
+                  <i
+                    class="fa-regular fa-trash-can text-red-500 pr-2 mt-[2px]"
+                  ></i>
                 </div>
               </template>
             </UPopover>

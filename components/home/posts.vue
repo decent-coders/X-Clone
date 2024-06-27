@@ -17,9 +17,9 @@
           />
           <template #panel>
             <div class="w-72 p-4 bg-black cursor-auto">
-              <div class="">
+              <div>
                 <div class="flex justify-between">
-                  <div id="ppImage" class="">
+                  <div id="ppImage">
                     <img
                       class="h-16 mb-2 w-16 rounded-full cursor-pointer"
                       src="/public/me.webp"
@@ -33,7 +33,6 @@
                       'text-gray-300 border h-9 border-gray-600 bg-zinc-950  hover:bg-zinc-900':
                         follow,
                     }"
-                    ref="followButton"
                     @click="handleFollowing"
                   >
                     {{ followMssg }}
@@ -92,9 +91,9 @@
                 </h1>
                 <template #panel>
                   <div class="w-72 p-4 bg-black cursor-auto">
-                    <div class="">
+                    <div>
                       <div class="flex justify-between">
-                        <div id="ppImage" class="">
+                        <div id="ppImage">
                           <img
                             class="h-16 mb-2 w-16 rounded-full cursor-pointer"
                             src="/public/me.webp"
@@ -107,7 +106,6 @@
                             'text-gray-300 border h-9 border-gray-600 bg-zinc-950  hover:bg-zinc-900':
                               follow,
                           }"
-                          ref="followButton"
                           @click="handleFollowing"
                         >
                           {{ followMssg }}
@@ -165,9 +163,9 @@
                 </h2>
                 <template #panel>
                   <div class="w-72 p-4 bg-black cursor-auto">
-                    <div class="">
+                    <div>
                       <div class="flex justify-between">
-                        <div id="ppImage" class="">
+                        <div id="ppImage">
                           <img
                             class="h-16 mb-2 w-16 rounded-full cursor-pointer"
                             src="/public/me.webp"
@@ -180,7 +178,6 @@
                             'text-gray-300 border h-9 border-gray-600 bg-zinc-950  hover:bg-zinc-900':
                               follow,
                           }"
-                          ref="followButton"
                           @click="handleFollowing"
                         >
                           {{ followMssg }}
@@ -230,25 +227,26 @@
                 class="text-gray-500 ms-1 font-system tracking-wider"
                 ref="postTime"
               >
-                19h
+                {{ time }}
               </div>
             </div>
           </div>
           <div
-            class="rounded-full text-gray-500 cursor-pointer hover:text-sky-400 hover:bg-gray-800 flex items-center justify-center mt-2 h-6 w-6"
+            class="rounded-full text-gray-500 cursor-pointer hover:text-sky-400 hover:bg-gray-800 flex items-center justify-center h-6 w-6"
           >
-            <UPopover
+            <!-- <UPopover
               :ui="{
                 background: 'bg-transparent ',
-                ring: ' ring-0 border border-gray-600',
-                rounded: 'rounded-xl ',
+                ring: ' ring-0 ',
+                rounded: ' ',
               }"
-            >
-              <i class="fa-solid fa-ellipsis"></i>
-
-              <template #panel>
+            > -->
+            <div class="flex flex-col justify-center">
+              <i class="fa-solid fa-ellipsis relative" @click="details"></i>
+              <transition>
                 <div
-                  class="px-1 bg-black py-1 font-system text-center flex cursor-pointer hover:bg-zinc-900"
+                  v-if="showdetails"
+                  class="rounded-xl absolute mt-14 -ml-12 px-1 border border-gray-600 bg-black py-1 font-system text-center flex cursor-pointer hover:bg-zinc-900"
                   @click="handlePostDelete"
                 >
                   <h1 class="text-gray-300 pl-3 pr-2">Delete</h1>
@@ -256,23 +254,21 @@
                     class="fa-regular fa-trash-can text-red-500 pr-2 mt-[2px]"
                   ></i>
                 </div>
-              </template>
-            </UPopover>
+              </transition>
+            </div>
           </div>
         </div>
 
-        <!-- post text -->
         <div class="" ref="postText">
-          <h1 class="pl-2 text-base font-normal font-system">{{ postText }}</h1>
+          <h1 class="pl-2 text-base font-normal font-system">
+            {{ postText }}
+          </h1>
         </div>
-        <!-- post file -->
         <div class="pr-4 mt-2" ref="fileURL">
           <img class="rounded-3xl" :src="fileUrl" alt="" />
         </div>
-        <!-- Post react -->
         <div class="pt-3 flex text-gray-500 justify-between text-lg pr-6">
           <div class="flex items-center">
-            <!-- UTooltip Reply -->
             <UTooltip
               :ui="{
                 base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
@@ -291,7 +287,6 @@
             </UTooltip>
           </div>
           <div>
-            <!-- UTooltip Repost -->
             <UTooltip
               :ui="{
                 base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
@@ -309,7 +304,6 @@
             </UTooltip>
           </div>
           <div class="flex cursor-pointer hover:text-red-500 items-center">
-            <!-- UTooltip Like -->
             <UTooltip
               :ui="{
                 base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
@@ -320,6 +314,7 @@
             >
               <div class="flex cursor-pointer hover:text-red-500 items-center">
                 <i class="fa-regular fa-heart"></i>
+                <!-- <i class="fa-solid fa-heart"></i> -->
                 <p class="ps-2 text-sm font-system">11</p>
               </div>
               <template #text>
@@ -329,7 +324,6 @@
           </div>
           <div class="flex">
             <div>
-              <!-- UTooltip Bookmark -->
               <UTooltip
                 :ui="{
                   base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
@@ -342,6 +336,7 @@
                   <i
                     class="fa-regular fa-bookmark mr-7 cursor-pointer hover:text-blue-400"
                   ></i>
+                  <!-- <i class="fa-solid fa-bookmark"></i> -->
                 </div>
                 <template #text>
                   <span>Bookmark</span>
@@ -349,7 +344,6 @@
               </UTooltip>
             </div>
             <div>
-              <!-- UTooltip Share -->
               <UTooltip
                 :ui="{
                   base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
@@ -376,21 +370,26 @@
 </template>
 
 <script setup>
-  const follow = ref(false);
-  const followMssg = ref("Follow");
+  const postStore = usePostStore();
+  const emit = defineEmits(["deletePost"]);
+  const showdetails = ref(false);
 
   const handleFollowing = () => {
-    if (!follow.value) {
-      follow.value = true;
-      followMssg.value = "Following";
+    postStore.toggleFollow();
+    if (postStore.follow) {
       window.open("https://x.com/DecentCoders", "_blank");
-    } else {
-      follow.value = false;
-      followMssg.value = "Follow";
     }
   };
+  const details = () => {
+    showdetails.value = !showdetails.value;
+  };
+  const handlePostDelete = () => {
+    showdetails.value = false;
+    emit("deletePost");
+  };
+  const follow = computed(() => postStore.follow);
+  const followMssg = computed(() => postStore.followMssg);
 
-  // Define props
   const props = defineProps({
     postText: {
       type: String,
@@ -400,5 +399,21 @@
       type: String,
       required: true,
     },
+    time: {
+      type: String,
+      required: true,
+    },
   });
 </script>
+
+<style scoped>
+  .v-enter-active,
+  .v-leave-active {
+    transition: opacity 0.3s ease;
+  }
+
+  .v-enter-from,
+  .v-leave-to {
+    opacity: 0;
+  }
+</style>

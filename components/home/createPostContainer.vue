@@ -3,7 +3,6 @@
     <div id="ppImage" class="w-10 h-full">
       <img class="h-10 w-10 rounded-full" src="/public/me.webp" alt="" />
     </div>
-    <!-- post input -->
     <div class="flex-1">
       <div class="border-b border-gray-600 ml-3 mr-5 mt-2 tracking-wider">
         <textarea
@@ -22,7 +21,6 @@
             class="rounded-3xl mx-auto max-h-[45vh]"
           />
         </div>
-
         <UPopover
           :ui="{
             background: 'bg-gray-900',
@@ -36,7 +34,6 @@
           >
             <i class="fa-solid fa-earth-americas pr-1"></i> Everyone can reply
           </p>
-
           <template #panel>
             <div
               class="w-36 text-sm text-gray-400 px-4 py-2 bg-black cursor-default font-system text-center ring ring-gray-600"
@@ -93,7 +90,6 @@
             }"
           >
             <i class="fa-solid fa-location-dot hover:text-sky-600 mt-1"></i>
-
             <template #panel>
               <div
                 class="w-36 text-sm text-gray-400 px-4 py-2 bg-black cursor-default font-system text-center ring ring-gray-600"
@@ -103,14 +99,12 @@
             </template>
           </UPopover>
         </div>
-
         <button
           class="flex justify-center items-center p-2 tracking-wider font-system font-semibold rounded-full px-4 bg-sky-600 hover:bg-sky-700 text-base"
           @click="emitPost"
         >
           Post
         </button>
-        <!-- post warning -->
         <HomePostErrorWArning
           v-if="postError"
           class="h-screen w-screen fixed left-0 top-14 z-99 flex justify-center"
@@ -141,10 +135,7 @@
 
 <script setup>
   const emit = defineEmits(["handlePost"]);
-  const postError = ref(false);
-  const fileURL = ref("");
-  const showEmojiPicker = ref(false);
-  const postText = ref("");
+  const postStore = usePostStore();
 
   const textAreaHeight = () => {
     const textarea = document.getElementById("textarea");
@@ -162,41 +153,60 @@
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        fileURL.value = reader.result;
+        postStore.setFileURL(reader.result);
       };
       reader.readAsDataURL(file);
     }
   };
 
   const toggleEmojiPicker = () => {
-    showEmojiPicker.value = !showEmojiPicker.value;
+    postStore.toggleEmojiPicker();
   };
 
   const handleSkipEmoji = () => {
-    showEmojiPicker.value = false;
+    postStore.showEmojiPicker = false;
   };
 
   const addEmoji = (event) => {
     const emoji = event.detail.unicode;
-    const cursorPosition = postText.value.length;
-    postText.value =
-      postText.value.slice(0, cursorPosition) +
-      emoji +
-      postText.value.slice(cursorPosition);
+    const cursorPosition = postStore.postText.length;
+    postStore.setPostText(
+      postStore.postText.slice(0, cursorPosition) +
+        emoji +
+        postStore.postText.slice(cursorPosition)
+    );
   };
 
   const emitPost = () => {
-    if (!postText.value && !fileURL.value) {
-      postError.value = true;
+    if (!postStore.postText && !postStore.fileURL) {
+      postStore.togglePostError();
       return;
     }
-    emit("handlePost", { postText: postText.value, fileURL: fileURL.value });
-    postText.value = "";
-    fileURL.value = "";
+    emit("handlePost", {
+      postText: postStore.postText,
+      fileURL: postStore.fileURL,
+    });
+    postStore.setPostText("");
+    postStore.setFileURL("");
+    textarea.style.height = "auto";
+    textarea.style.height = `auto`;
   };
+
   const handlePosteror = () => {
-    postError.value = false;
+    postStore.togglePostError();
   };
+
+  const postText = computed({
+    get: () => postStore.postText,
+    set: (newValue) => {
+      // Handle setting logic here (e.g., validation)
+      postStore.setPostText(newValue);
+    },
+  });
+
+  const fileURL = computed(() => postStore.fileURL);
+  const postError = computed(() => postStore.postError);
+  const showEmojiPicker = computed(() => postStore.showEmojiPicker);
 </script>
 
 <style>

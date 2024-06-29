@@ -224,7 +224,7 @@
               </UPopover>
               <i class="fa-solid fa-circle ms-1 text-[3px] text-gray-500"></i>
               <div
-                class="text-gray-500 ms-1 font-system tracking-wider"
+                class="text-gray-500 ms-1 text-sm font-system tracking-wider"
                 ref="postTime"
               >
                 {{ time }}
@@ -246,7 +246,7 @@
               <transition>
                 <div
                   v-if="showdetails"
-                  class="rounded-xl absolute mt-14 -ml-12 px-1 border border-gray-600 bg-black py-1 font-system text-center flex cursor-pointer hover:bg-zinc-900"
+                  class="rounded-xl absolute mt-14 -ml-12 px-1 border border-gray-600 bg-black py-1 font-system text-center flex cursor-pointer hover:bg-zinc-900 z-20"
                   @click="handlePostDelete"
                 >
                   <h1 class="text-gray-300 pl-3 pr-2">Delete</h1>
@@ -255,14 +255,21 @@
                   ></i>
                 </div>
               </transition>
+              <div
+                class="h-screen w-screen fixed top-0 left-0 z-10"
+                v-if="showdetails"
+                @click="showDetailsSkip"
+              ></div>
             </div>
           </div>
         </div>
 
         <div class="" ref="postText">
-          <h1 class="pl-2 text-base font-normal font-system">
-            {{ postText }}
-          </h1>
+          <transition>
+            <h1 class="pl-2 text-base font-normal font-system">
+              {{ postText }}
+            </h1>
+          </transition>
         </div>
         <div class="pr-4 mt-2" ref="fileURL">
           <img class="rounded-3xl" :src="fileUrl" alt="" />
@@ -303,7 +310,7 @@
               </template>
             </UTooltip>
           </div>
-          <div class="flex cursor-pointer hover:text-red-500 items-center">
+          <div class="flex cursor-pointer items-center">
             <UTooltip
               :ui="{
                 base: 'font-sm font-system px-3 py-1 tracking-wider font-semibold rounded-md bg-gray-700 text-gray-200 text-white',
@@ -312,13 +319,27 @@
               }"
               :openDelay="1000"
             >
-              <div class="flex cursor-pointer hover:text-red-500 items-center">
-                <i class="fa-regular fa-heart"></i>
-                <!-- <i class="fa-solid fa-heart"></i> -->
-                <p class="ps-2 text-sm font-system">11</p>
+              <div class="flex cursor-pointer items-center">
+                <i
+                  class="fa-regular fa-heart hover:text-red-500"
+                  v-if="!postLiked"
+                  @click="handlePostLike"
+                ></i>
+                <i
+                  class="fa-solid fa-heart text-red-600"
+                  v-if="postLiked"
+                  @click="handlePostLike"
+                ></i>
+                <p
+                  class="ps-2 text-sm font-system"
+                  :class="{ 'text-red-500': postLiked }"
+                >
+                  {{ Likes }}
+                </p>
               </div>
               <template #text>
-                <span>Like</span>
+                <span v-if="!postLiked">Like</span>
+                <span v-else>Liked</span>
               </template>
             </UTooltip>
           </div>
@@ -335,11 +356,19 @@
                 <div>
                   <i
                     class="fa-regular fa-bookmark mr-7 cursor-pointer hover:text-blue-400"
+                    v-if="!bookmarked"
+                    @click="handeBookMark"
                   ></i>
-                  <!-- <i class="fa-solid fa-bookmark"></i> -->
+                  <i
+                    class="fa-solid fa-bookmark mr-7 cursor-pointer"
+                    :class="{ 'text-blue-400': bookmarked }"
+                    v-if="bookmarked"
+                    @click="handeBookMark"
+                  ></i>
                 </div>
                 <template #text>
-                  <span>Bookmark</span>
+                  <span v-if="bookmarked">Bookmarked</span>
+                  <span v-else>Bookmark</span>
                 </template>
               </UTooltip>
             </div>
@@ -353,9 +382,25 @@
                 :openDelay="1000"
               >
                 <div>
-                  <i
-                    class="fa-solid fa-arrow-up-from-bracket cursor-pointer hover:text-blue-400"
-                  ></i>
+                  <UPopover
+                    :ui="{
+                      background: 'bg-gray-900',
+                      ring: 'ring-gray-600',
+                      rounded: 'rounded-xl',
+                    }"
+                  >
+                    <i
+                      class="fa-solid fa-arrow-up-from-bracket cursor-pointer hover:text-blue-400"
+                    ></i>
+
+                    <template #panel>
+                      <div
+                        class="w-36 text-sm text-gray-400 px-4 py-2 bg-black cursor-default font-system text-center ring ring-gray-600"
+                      >
+                        <h1>Haven't added this feature Sorry!!</h1>
+                      </div>
+                    </template>
+                  </UPopover>
                 </div>
                 <template class="bg-transparent" #text>
                   <span>Share</span>
@@ -373,7 +418,24 @@
   const postStore = usePostStore();
   const emit = defineEmits(["deletePost"]);
   const showdetails = ref(false);
+  const postLiked = ref(false);
+  const bookmarked = ref(false);
+  const Likes = ref(11);
 
+  const showDetailsSkip = () => {
+    showdetails.value = false;
+  };
+  const handeBookMark = () => {
+    bookmarked.value = !bookmarked.value;
+  };
+  const handlePostLike = () => {
+    postLiked.value = !postLiked.value;
+    if (postLiked.value) {
+      Likes.value += 1;
+    } else {
+      Likes.value -= 1;
+    }
+  };
   const handleFollowing = () => {
     postStore.toggleFollow();
     if (postStore.follow) {

@@ -29,18 +29,18 @@ export const usePostStore = defineStore("post", () => {
     showEmojiPicker.value = !showEmojiPicker.value;
   };
 
-  const ShowAllPosts = () => {
+  const showAllPosts = () => {
     activeShowFollowedPosts.value = false;
     activeShowAllPosts.value = true;
   };
 
-  const ShowFollowedPosts = () => {
+  const showFollowedPosts = () => {
     activeShowAllPosts.value = false;
     activeShowFollowedPosts.value = true;
   };
 
   const addPost = (data) => {
-    posts.value.unshift(data);
+    posts.value.unshift({ ...data, createdAt: new Date() });
   };
 
   const reversedPosts = computed(() => {
@@ -50,6 +50,21 @@ export const usePostStore = defineStore("post", () => {
   const toggleFollow = () => {
     follow.value = !follow.value;
     followMssg.value = follow.value ? "Following" : "Follow";
+  };
+
+  const formatPostTime = (date, currentTime) => {
+    const now = currentTime;
+    const seconds = Math.floor((now - new Date(date)) / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+
+    if (seconds < 60) {
+      return `Just Now`;
+    } else if (minutes < 60) {
+      return `${minutes}min`;
+    } else {
+      return `${hours}h`;
+    }
   };
 
   return {
@@ -66,10 +81,11 @@ export const usePostStore = defineStore("post", () => {
     setFileURL,
     togglePostError,
     toggleEmojiPicker,
-    ShowAllPosts,
-    ShowFollowedPosts,
+    showAllPosts,
+    showFollowedPosts,
     addPost,
     reversedPosts,
     toggleFollow,
+    formatPostTime,
   };
 });

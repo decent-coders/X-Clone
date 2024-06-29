@@ -4,7 +4,7 @@
       <div class="flex font-semibold tracking-wide">
         <div
           class="border-r p-3 border-gray-600 w-1/2 text-center cursor-pointer"
-          @click="ShowAllPosts"
+          @click="showAllPosts"
         >
           <span
             class="p-3 w-full font-system"
@@ -15,7 +15,7 @@
         </div>
         <div
           class="border-r p-3 border-gray-600 w-1/2 text-center cursor-pointer"
-          @click="ShowFollowedPosts"
+          @click="showFollowedPosts"
         >
           <span
             class="p-3 w-full font-system"
@@ -32,20 +32,19 @@
     />
     <div id="post-container">
       <div>
-        <transition-group>
+        <transition-group name="fade" tag="div">
           <HomePosts
+            v-if="!activeShowFollowedPosts"
             v-for="(post, index) in reversedPosts"
             :key="post.id"
-            v-if="activeShowAllPosts"
             :postText="post.postText"
             :fileUrl="post.fileURL"
-            :time="postTime"
+            :time="formatPostTime(post.createdAt)"
             @deletePost="handlePostDelete(index)"
             class="relative"
           />
         </transition-group>
       </div>
-
       <div
         v-if="activeShowAllPosts && reversedPosts.length === 0"
         ref="noPostsDiv"
@@ -67,11 +66,8 @@
         </svg>
         <p class="text-3xl animate-pulse">Nothing Posted yet!!</p>
       </div>
-
       <div id="followposts" v-if="activeShowFollowedPosts">
-        <div
-          class="h-[80vh] w-full flex flex-col items-center absolute top-0 justify-center"
-        >
+        <div class="h-[80vh] w-full flex flex-col items-center justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -95,13 +91,15 @@
 
 <script setup>
   const postStore = usePostStore();
-  const postTime = "19h";
-  const ShowAllPosts = () => {
-    postStore.ShowAllPosts();
+
+  const currentTime = ref(new Date());
+
+  const showAllPosts = () => {
+    postStore.showAllPosts();
   };
 
-  const ShowFollowedPosts = () => {
-    postStore.ShowFollowedPosts();
+  const showFollowedPosts = () => {
+    postStore.showFollowedPosts();
   };
 
   const handlePost = (data) => {
@@ -117,17 +115,39 @@
     () => postStore.activeShowFollowedPosts
   );
   const reversedPosts = computed(() => postStore.reversedPosts);
+  const formatPostTime = (date) => {
+    const now = currentTime.value;
+    const seconds = Math.floor((now - new Date(date)) / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+
+    if (seconds < 60) {
+      return `Just Now`;
+    } else if (minutes < 60) {
+      return `${minutes}min`;
+    } else {
+      return `${hours}h`;
+    }
+  };
+
+  onMounted(() => {
+    const intervalId = setInterval(() => {
+      currentTime.value = new Date();
+    }, 60000);
+
+    onBeforeUnmount(() => {
+      clearInterval(intervalId);
+    });
+  });
 </script>
 
 <style>
-  .v-move,
-  .v-enter-active,
-  .v-leave-active {
-    transition: Opacity 0.5s ease;
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s ease;
   }
-
-  .v-enter-from,
-  .v-leave-to {
+  .fade-enter-from,
+  .fade-leave-to {
     opacity: 0;
   }
 </style>

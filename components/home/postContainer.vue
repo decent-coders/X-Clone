@@ -1,32 +1,39 @@
 <template>
-  <div id="post_preference" class="w-full border-r border-gray-600 text-white">
-    <div class="border-y border-gray-600 text-white">
-      <div class="flex font-semibold tracking-wide">
-        <div
-          class="border-r p-3 border-gray-600 w-1/2 text-center cursor-pointer"
-          @click="showAllPosts"
-        >
-          <span
-            class="p-3 w-full font-system"
-            :class="{ 'border-b-4 border-sky-500': activeShowAllPosts }"
+  <div
+    id="post_preference"
+    class="w-full m600:border-r border-gray-600 text-white"
+  >
+    <section ref="post option">
+      <div class="border-y border-gray-600 text-white">
+        <div class="flex font-semibold tracking-wide">
+          <div
+            class="border-r p-3 border-gray-600 w-1/2 text-center cursor-pointer"
+            @click="showAllPosts"
           >
-            For You
-          </span>
-        </div>
-        <div
-          class="border-r p-3 border-gray-600 w-1/2 text-center cursor-pointer"
-          @click="showFollowedPosts"
-        >
-          <span
-            class="p-3 w-full font-system"
-            :class="{ 'border-b-4 border-sky-500': activeShowFollowedPosts }"
+            <span
+              class="p-3 w-full font-system"
+              :class="{ 'border-b-4 border-sky-500': activeShowAllPosts }"
+            >
+              For You
+            </span>
+          </div>
+          <div
+            class="p-3 w-1/2 text-center cursor-pointer"
+            @click="showFollowedPosts"
           >
-            Following
-          </span>
+            <span
+              class="p-3 w-full font-system"
+              :class="{ 'border-b-4 border-sky-500': activeShowFollowedPosts }"
+            >
+              Following
+            </span>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+
     <HomeCreatePostContainer
+      class="hidden m600:flex"
       v-if="activeShowAllPosts"
       @handlePost="handlePost"
     />
@@ -48,7 +55,7 @@
       <div
         v-if="activeShowAllPosts && reversedPosts.length === 0"
         ref="noPostsDiv"
-        class="h-[80vh] w-full flex flex-col items-center justify-center"
+        class="h-[80vh] m600:h-[65vh] m900:h-[80vh] w-full flex flex-col items-center justify-center"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +71,7 @@
             d="M15.182 16.318A4.486 4.486 0 0 0 12.016 15a4.486 4.486 0 0 0-3.198 1.318M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z"
           />
         </svg>
-        <p class="text-3xl animate-pulse">Nothing Posted yet!!</p>
+        <p class="text-2xl m600:text-3xl animate-pulse">Nothing Posted yet!!</p>
       </div>
       <div id="followposts" v-if="activeShowFollowedPosts">
         <div class="h-[80vh] w-full flex flex-col items-center justify-center">
@@ -82,7 +89,9 @@
               d="M15.182 16.318A4.486 4.486 0 0 0 12.016 15a4.486 4.486 0 0 0-3.198 1.318M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z"
             />
           </svg>
-          <p class="text-3xl animate-pulse">No Following Post Available!!</p>
+          <p class="text-xl m600:text-3xl animate-pulse">
+            No Following Post Available!!
+          </p>
         </div>
       </div>
     </div>

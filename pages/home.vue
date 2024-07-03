@@ -2,10 +2,13 @@
   <NuxtLayout>
     <div class="flex min-h-screen justify-center relative bg-black">
       <!-- post container -->
-      <HomePostContainer />
+      <HomePostContainer class="m600:mb-0 mb-12" />
 
       <!-- right sidebar -->
-      <div id="ads" class="w-[56%] min-w-[300px] text-white p-7 pt-2 relative">
+      <div
+        id="ads"
+        class="hidden m900:block w-[56%] min-w-[300px] text-white p-7 pt-2 relative"
+      >
         <div ref="sidebar" class="sticky bottom-5 top-5">
           <!-- search input -->
           <div id="searchInput">
@@ -143,11 +146,11 @@
       premiumDetails.value =
         "Enjoy our premium service without ads, Thank you!";
     } else {
-      // Subscribe.value = false;
-      // SubscribeMssg.value = "Subscribe";
-      // premiumHeading.value = "Subscribe To Premium";
-      // premiumDetails.value =
-      //   "Subscribe to unlock new features and if eligible, receive a shareof ads revenue.";
+      Subscribe.value = false;
+      SubscribeMssg.value = "Subscribe";
+      premiumHeading.value = "Subscribe To Premium";
+      premiumDetails.value =
+        "Subscribe to unlock new features and if eligible, receive a shareof ads revenue.";
     }
   };
 </script>

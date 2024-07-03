@@ -1,8 +1,9 @@
 <template>
-  <div class="flex p-3 border-b border-gray-600">
+  <div class="flex relative p-3 border-b border-gray-600">
     <div id="ppImage" class="w-10 h-full">
       <img class="h-10 w-10 rounded-full" src="/public/me.webp" alt="" />
     </div>
+
     <div class="flex-1">
       <div class="border-b border-gray-600 ml-3 mr-5 mt-2 tracking-wider">
         <textarea
@@ -75,7 +76,7 @@
             }"
             :openDelay="1000"
           >
-            <div @click="toggleEmojiPicker">
+            <div @click="toggleEmojiPicker" class="hidden m1100:block">
               <i class="fa-regular fa-face-smile me-4 hover:text-sky-600"></i>
             </div>
             <template #text>
@@ -105,18 +106,8 @@
         >
           Post
         </button>
-        <HomePostErrorWArning
-          v-if="postError"
-          class="h-screen w-screen fixed left-0 top-14 z-99 flex justify-center"
-        >
-          <button
-            class="flex justify-center items-center p-2 tracking-wider font-system font-semibold rounded-full px-4 bg-red-600 hover:bg-red-700 text-base mx-auto mt-3"
-            @click="handlePosteror"
-          >
-            Ok
-          </button>
-        </HomePostErrorWArning>
       </div>
+
       <div
         class="h-screen w-screen fixed left-0 top-0 z-99"
         v-if="showEmojiPicker"
@@ -130,6 +121,18 @@
         <emoji-picker @emoji-click="addEmoji"></emoji-picker>
       </div>
     </div>
+
+    <HomePostErrorWArning
+      v-if="postError"
+      class="h-full absolute w-full z-50 flex justify-center"
+    >
+      <button
+        class="flex justify-center items-center p-2 tracking-wider font-system font-semibold rounded-full px-4 bg-red-600 hover:bg-red-700 text-base mx-auto mt-3"
+        @click="handlePosteror"
+      >
+        Ok
+      </button>
+    </HomePostErrorWArning>
   </div>
 </template>
 

@@ -3,7 +3,7 @@
     <div
       @click="handleSkipModal"
       v-if="showPostModal"
-      class="h-full w-screen fixed right-0 top-0 z-10 flex justify-center items-start pt-14 modal-bg overflow-auto"
+      class="h-full max-h-[90vh] w-screen fixed right-0 top-0 z-50 flex justify-center items-start pt-14 modal-bg overflow-auto"
     >
       <postModal
         @click.stop="skipSkipping"
@@ -18,13 +18,10 @@
     </div>
   </transition>
 
-  <div
-    class="flex h-screen overflow-auto select-none"
-    style="font-family: none"
-  >
+  <div class="flex h-screen select-none">
     <div
       id="sidebar"
-      class="m1100:w-[25%] m1100:min-w-[250px] m1200:w-[22%] h-screen bg-black text-white flex flex-col overflow-y-auto"
+      class="m1100:w-[25%] m1100:min-w-[250px] m1200:w-[22%] h-screen bg-black text-white hidden m600:flex flex-col overflow-y-auto"
     >
       <div class="border-r border-gray-600 flex flex-col h-full">
         <aside
@@ -32,8 +29,15 @@
           class="lg:ps-5 h-full w-full lg:overflow-hidden lg:hover:overflow-auto flex flex-col"
         >
           <div class="px-2 bg-black flex flex-col flex-grow">
-            <NuxtLink to="/Home" class="flex px-2 pt-2">
-              <img src="@/public/x-home.jpg" class="h-10 w-11" alt="X Logo" />
+            <NuxtLink
+              to="/Home"
+              class="flex w-fit p-2 rounded-full hover:bg-gray-700"
+            >
+              <img
+                src="@/public/x-home.jpg"
+                class="w-12 h-11 rounded-full"
+                alt="X Logo"
+              />
             </NuxtLink>
 
             <ul
@@ -42,95 +46,99 @@
               <li>
                 <NuxtLink
                   href="/Home"
-                  class="flex text-white items-center ms-0 py-2 px-4 m-1 rounded-full hover:bg-gray-700 group font-normal"
+                  class="flex text-white items-center ms-0 py-2 m1100:px-4 m-1 rounded-full hover:bg-gray-700 justify-center m1100:justify-start group font-normal"
                   exact-active-class="active"
                 >
-                  <div id="icon" class="w-7 flex justify-center">
-                    <i class="fa-solid fa-house"></i>
+                  <div id="icon" class="m1100:w-7 flex justify-center">
+                    <i class="fa-solid fa-house text-2xl"></i>
                   </div>
-                  <span class="ms-3">Home</span>
+                  <span class="m1100:ms-3 hidden m1100:block">Home</span>
                 </NuxtLink>
               </li>
               <li>
                 <NuxtLink
                   href="/Explore"
-                  class="flex text-white items-center ms-0 py-2 px-4 m-1 rounded-full hover:bg-gray-700 group font-normal"
+                  class="flex text-white items-center ms-0 py-2 m1100:px-4 m-1 rounded-full hover:bg-gray-700 justify-center m1100:justify-start group font-normal"
                   exact-active-class="active"
                 >
-                  <div id="icon" class="w-7 flex justify-center">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                  <div id="icon" class="m1100:w-7 flex justify-center">
+                    <i class="fa-solid fa-magnifying-glass text-2xl"></i>
                   </div>
-                  <span class="ms-3">Explore</span>
+                  <span class="ms-3 hidden m1100:block">Explore</span>
                 </NuxtLink>
               </li>
               <li>
                 <NuxtLink
                   href="/Notifications"
-                  class="flex text-white items-center ms-0 py-2 px-4 m-1 rounded-full hover:bg-gray-700 group font-normal"
+                  class="flex text-white items-center ms-0 py-2 m1100:px-4 m-1 rounded-full hover:bg-gray-700 justify-center m1100:justify-start group font-normal"
                   exact-active-class="active"
                 >
-                  <div id="icon" class="w-7 flex justify-center">
-                    <i class="fa-regular fa-bell"></i>
+                  <div id="icon" class="m1100:w-7 flex justify-centerr">
+                    <i class="fa-regular fa-bell text-2xl"></i>
                   </div>
-                  <span class="ms-3">Notifications</span>
+                  <span class="ms-3 hidden m1100:block">Notifications</span>
                 </NuxtLink>
               </li>
               <li>
                 <NuxtLink
                   href="/Messages"
-                  class="flex text-white items-center ms-0 py-2 px-4 m-1 rounded-full hover:bg-gray-700 group font-normal"
+                  class="flex text-white items-center ms-0 py-2 m1100:px-4 m-1 rounded-full hover:bg-gray-700 justify-center m1100:justify-start group font-normal"
                   exact-active-class="active"
                 >
-                  <i class="fa-regular fa-envelope w-7"></i>
-                  <span class="ms-3">Messages</span>
+                  <i class="fa-regular fa-envelope m1100:w-7 text-2xl"></i>
+                  <span class="ms-3 hidden m1100:block">Messages</span>
                 </NuxtLink>
               </li>
               <li>
                 <NuxtLink
                   href="/Communities"
-                  class="flex text-white items-center ms-0 py-2 px-4 m-1 rounded-full hover:bg-gray-700 group font-normal"
+                  class="flex text-white items-center ms-0 py-2 m1100:px-4 m-1 rounded-full hover:bg-gray-700 justify-center m1100:justify-start group font-normal"
                   exact-active-class="active"
                 >
-                  <i class="fa-solid fa-users text-lg w-7"></i>
-                  <span class="ms-3">Communities</span>
+                  <i class="fa-solid fa-users m1100:w-7 text-2xl"></i>
+                  <span class="ms-3 hidden m1100:block">Communities</span>
                 </NuxtLink>
               </li>
               <li>
                 <NuxtLink
                   href="/Profile"
-                  class="flex text-white items-center ms-0 py-2 px-4 m-1 rounded-full hover:bg-gray-700 group font-normal"
+                  class="flex text-white items-center ms-0 py-2 m1100:px-4 m-1 rounded-full hover:bg-gray-700 justify-center m1100:justify-start group font-normal"
                   exact-active-class="active"
                 >
-                  <i class="fa-solid fa-user-large w-7 ps-1 text-lg"></i>
-                  <span class="ms-3">Profile</span>
+                  <i
+                    class="fa-solid fa-user-large m1100:w-7 m900:ps-1 text-xl m1100:text-lg"
+                  ></i>
+                  <span class="ms-3 hidden m1100:block">Profile</span>
                 </NuxtLink>
               </li>
               <li>
                 <NuxtLink
                   href="/Membership"
-                  class="flex text-white items-center ms-0 py-2 px-4 m-1 rounded-full hover:bg-gray-700 group font-normal"
+                  class="flex text-white items-center ms-0 py-2 m1100:px-4 m-1 rounded-full hover:bg-gray-700 justify-center m1100:justify-start group font-normal"
                   exact-active-class="active"
                 >
-                  <i class="fa-brands fa-web-awesome w-7 text-base"></i>
-                  <span class="ms-3">Premium</span>
+                  <i class="fa-brands fa-web-awesome m1100:w-7 text-xl"></i>
+                  <span class="ms-3 hidden m1100:block">Premium</span>
                 </NuxtLink>
               </li>
               <li>
                 <NuxtLink
                   href="/Settings"
-                  class="flex text-white items-center ms-0 py-2 px-4 m-1 rounded-full hover:bg-gray-700 group font-normal"
+                  class="flex text-white items-center ms-0 py-2 m1100:px-4 m-1 rounded-full hover:bg-gray-700 justify-center m1100:justify-start group font-normal"
                   exact-active-class="active"
                 >
-                  <i class="fa-solid fa-gear w-7"></i>
-                  <span class="ms-3">Settings</span>
+                  <i class="fa-solid fa-gear m1100:w-7 text-2xl"></i>
+                  <span class="ms-3 hidden m1100:block">Settings</span>
                 </NuxtLink>
               </li>
               <li class="pr-2">
                 <button
-                  class="w-full flex justify-center items-center bg-sky-600 hover:bg-sky-700 rounded-full py-2 font-normal mt-2"
+                  class="m1100:w-full mx-auto flex justify-center items-center bg-sky-600 hover:bg-sky-700 rounded-full py-3 m1100:py-2 px-3 m1100:px-0 font-normal mt-2"
                   @click="handleAddPost"
                 >
-                  Post
+                  <span class="hidden m1100:block">Post</span>
+
+                  <i class="fa-regular fa-pen-to-square m1100:hidden"></i>
                 </button>
               </li>
             </ul>
@@ -148,16 +156,16 @@
             >
               <div class="mt-2 m1100:mt-auto mb-2 w-full">
                 <div
-                  class="p-2 flex flex-row justify-start cursor-pointer rounded-full hover:bg-zinc-900 items-center"
+                  class="p-2 flex flex-row justify-center m1100:justify-start cursor-pointer rounded-full hover:bg-zinc-900 items-center"
                 >
                   <div id="ppImage">
                     <img
-                      class="h-10 w-10 rounded-full"
+                      class="w-10 rounded-full"
                       src="@/public/me.webp"
                       alt=""
                     />
                   </div>
-                  <div id="ppName" class="ms-2">
+                  <div id="ppName" class="ms-2 hidden m1100:block">
                     <h1 class="text-base font-semibold font-system">
                       Hridoy Hawladar
                     </h1>
@@ -166,7 +174,7 @@
                     </h2>
                   </div>
                   <i
-                    class="fa-solid fa-ellipsis ml-auto mr-2 text-gray-400 hover:text-sky-400"
+                    class="fa-solid fa-ellipsis m1100:ml-auto m1100:mr-2 text-gray-400 hover:text-sky-400 hidden m1100:block"
                   ></i>
                 </div>
               </div>
@@ -188,6 +196,65 @@
           </div>
         </aside>
       </div>
+    </div>
+
+    <button
+      ref="post button on mobile phone"
+      class="m600:hidden flex justify-center items-center bg-sky-600 hover:bg-sky-700 rounded-full py-2 px-3 font-normal fixed bottom-[65px] right-5 z-20"
+      @click="handleAddPost"
+    >
+      <i class="fa-regular fa-pen-to-square text-xl"></i>
+    </button>
+
+    <div
+      id="sidebarForMobiles"
+      class="w-screen border-t border-gray-600 z-30 text-white flex justify-center fixed bottom-0 items-center m600:hidden"
+    >
+      <NuxtLink
+        href="/Home"
+        class="flex text-white items-center w-[20%] py-2 px-4 rounded-md hover:bg-zinc-900 justify-center font-normal"
+        exact-active-class="active2"
+      >
+        <div id="icon">
+          <i class="fa-solid fa-house text-2xl"></i>
+        </div>
+      </NuxtLink>
+      <NuxtLink
+        href="/Explore"
+        class="flex w-[20%] text-white items-center py-2 px-4 rounded-md hover:bg-zinc-900 justify-center font-normal"
+        exact-active-class="active2"
+      >
+        <div id="icon">
+          <i class="fa-solid fa-magnifying-glass text-2xl"></i>
+        </div>
+      </NuxtLink>
+      <NuxtLink
+        href="/Notifications"
+        class="flex w-[20%] text-white items-center py-2 px-4 rounded-md hover:bg-zinc-900 justify-center font-normal"
+        exact-active-class="active2"
+      >
+        <div id="icon">
+          <i class="fa-regular fa-bell text-2xl"></i>
+        </div>
+      </NuxtLink>
+      <NuxtLink
+        href="/Messages"
+        class="flex w-[20%] text-white items-center py-2 px-4 rounded-md hover:bg-zinc-900 justify-center font-normal"
+        exact-active-class="active2"
+      >
+        <div id="icon">
+          <i class="fa-regular fa-envelope text-2xl"></i>
+        </div>
+      </NuxtLink>
+      <NuxtLink
+        href="/Settings"
+        class="flex w-[20%] text-white items-center py-2 px-4 rounded-md hover:bg-zinc-900 justify-center font-normal"
+        exact-active-class="active2"
+      >
+        <div id="icon">
+          <i class="fa-solid fa-gear m1100:w-7 text-2xl"></i>
+        </div>
+      </NuxtLink>
     </div>
 
     <div id="main-content" class="flex-1 bg-black overflow-y-scroll">
@@ -242,6 +309,10 @@
   .active {
     --tw-bg-opacity: 1;
     background-color: rgb(var(--color-gray-800) / var(--tw-bg-opacity));
+  }
+  .active2 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(24 24 27 / var(--tw-bg-opacity));
   }
 
   .modal-bg {

@@ -75,9 +75,15 @@
       </div>
 
       <div ref="post" class="flex-1">
-        <div class="flex justify-between items-center" ref="profileDetails">
+        <div
+          class="flex justify-between m400:items-center"
+          ref="profileDetails"
+        >
           <div>
-            <div id="ppName" class="ms-2 flex items-center cursor-pointer">
+            <div
+              id="ppName"
+              class="ms-2 flex leading-3 max-m400:mb-1 flex-wrap items-center cursor-pointer"
+            >
               <UPopover
                 mode="hover"
                 :ui="{
@@ -86,7 +92,9 @@
                   rounded: 'rounded-xl',
                 }"
               >
-                <h1 class="text-base font-semibold font-system">
+                <h1
+                  class="text-sm m500:text-base font-semibold font-system pe-2"
+                >
                   Hridoy Hawladar
                 </h1>
                 <template #panel>
@@ -150,103 +158,100 @@
                   </div>
                 </template>
               </UPopover>
-              <UPopover
-                mode="hover"
-                :ui="{
-                  background: 'bg-gray-900',
-                  ring: 'ring-gray-600',
-                  rounded: 'rounded-xl',
-                }"
-              >
-                <h2 class="text-gray-500 ps-2 font-system tracking-wider">
-                  @DecentCoders
-                </h2>
-                <template #panel>
-                  <div class="w-72 p-4 bg-black cursor-auto">
-                    <div>
-                      <div class="flex justify-between">
-                        <div id="ppImage">
-                          <img
-                            class="h-16 mb-2 w-16 rounded-full cursor-pointer"
-                            src="/public/me.webp"
-                            alt=""
-                          />
+              <div class="flex items-center">
+                <UPopover
+                  mode="hover"
+                  :ui="{
+                    background: 'bg-gray-900',
+                    ring: 'ring-gray-600',
+                    rounded: 'rounded-xl',
+                  }"
+                >
+                  <h2
+                    class="text-sm m500:text-base text-gray-500 font-system tracking-wider"
+                  >
+                    @DecentCoders
+                  </h2>
+                  <template #panel>
+                    <div class="w-72 p-4 bg-black cursor-auto">
+                      <div>
+                        <div class="flex justify-between">
+                          <div id="ppImage">
+                            <img
+                              class="h-16 mb-2 w-16 rounded-full cursor-pointer"
+                              src="/public/me.webp"
+                              alt=""
+                            />
+                          </div>
+                          <button
+                            class="rounded-full px-4 h-8 bg-slate-200 hover:bg-slate-300 font-bold text-black text-sm tracking-[1px] z-10 absolute right-3 font-system"
+                            :class="{
+                              'text-gray-300 border h-9 border-gray-600 bg-zinc-950  hover:bg-zinc-900':
+                                follow,
+                            }"
+                            @click="handleFollowing"
+                          >
+                            {{ followMssg }}
+                          </button>
                         </div>
-                        <button
-                          class="rounded-full px-4 h-8 bg-slate-200 hover:bg-slate-300 font-bold text-black text-sm tracking-[1px] z-10 absolute right-3 font-system"
-                          :class="{
-                            'text-gray-300 border h-9 border-gray-600 bg-zinc-950  hover:bg-zinc-900':
-                              follow,
-                          }"
-                          @click="handleFollowing"
-                        >
-                          {{ followMssg }}
-                        </button>
-                      </div>
-                      <div id="ppName" class="mb-2">
-                        <h1
-                          class="font-semibold font-system cursor-pointer hover:underline"
-                        >
-                          Hridoy Hawladar
-                        </h1>
-                        <h2
-                          class="text-gray-500 hover:underline font-system tracking-wider cursor-pointer"
-                        >
-                          @DecentCoders
-                        </h2>
-                      </div>
-                      <div
-                        id="ppbio"
-                        class="font-system font-normal cursor-text"
-                      >
-                        Web Developer, I love building things for the web and
-                        sharing my knowledge with others. Let's connect!!!
-                      </div>
-                      <div id="followDetails" class="mt-2 flex justify-start">
-                        <div
-                          class="font-system text-gray-500 hover:border-b border-white font-thin cursor-pointer h-5 leading-none"
-                        >
-                          <span class="font-semibold text-gray-200 mr-1"
-                            >420</span
-                          >Following
+                        <div id="ppName" class="mb-2">
+                          <h1
+                            class="font-semibold font-system cursor-pointer hover:underline"
+                          >
+                            Hridoy Hawladar
+                          </h1>
+                          <h2
+                            class="text-gray-500 hover:underline font-system tracking-wider cursor-pointer"
+                          >
+                            @DecentCoders
+                          </h2>
                         </div>
                         <div
-                          class="font-system text-gray-500 hover:border-b border-white font-thin cursor-pointer ml-4 h-5 leading-none"
+                          id="ppbio"
+                          class="font-system font-normal cursor-text"
                         >
-                          <span class="font-semibold text-gray-200 mr-1"
-                            >420</span
-                          >Followers
+                          Web Developer, I love building things for the web and
+                          sharing my knowledge with others. Let's connect!!!
+                        </div>
+                        <div id="followDetails" class="mt-2 flex justify-start">
+                          <div
+                            class="font-system text-gray-500 hover:border-b border-white font-thin cursor-pointer h-5 leading-none"
+                          >
+                            <span class="font-semibold text-gray-200 mr-1"
+                              >420</span
+                            >Following
+                          </div>
+                          <div
+                            class="font-system text-gray-500 hover:border-b border-white font-thin cursor-pointer ml-4 h-5 leading-none"
+                          >
+                            <span class="font-semibold text-gray-200 mr-1"
+                              >420</span
+                            >Followers
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </template>
-              </UPopover>
-              <i class="fa-solid fa-circle ms-1 text-[3px] text-gray-500"></i>
-              <div
-                class="text-gray-500 ms-1 text-sm font-system tracking-wider"
-                ref="postTime"
-              >
-                {{ time }}
+                  </template>
+                </UPopover>
+                <i class="fa-solid fa-circle ms-1 text-[3px] text-gray-500"></i>
+                <div
+                  class="text-gray-500 ms-1 text-sm font-system tracking-wider"
+                  ref="postTime"
+                >
+                  {{ time }}
+                </div>
               </div>
             </div>
           </div>
           <div
             class="rounded-full text-gray-500 cursor-pointer hover:text-sky-400 hover:bg-gray-800 flex items-center justify-center h-6 w-6"
           >
-            <!-- <UPopover
-              :ui="{
-                background: 'bg-transparent ',
-                ring: ' ring-0 ',
-                rounded: ' ',
-              }"
-            > -->
             <div class="flex flex-col justify-center">
               <i class="fa-solid fa-ellipsis relative" @click="details"></i>
               <transition>
                 <div
                   v-if="showdetails"
-                  class="rounded-xl absolute mt-14 -ml-12 px-1 border border-gray-600 bg-black py-1 font-system text-center flex cursor-pointer hover:bg-zinc-900 z-20"
+                  class="rounded-xl absolute mt-14 -ml-[70px] m900:-ml-12 px-1 border border-gray-600 bg-black py-1 font-system text-center flex cursor-pointer hover:bg-zinc-900 z-20"
                   @click="handlePostDelete"
                 >
                   <h1 class="text-gray-300 pl-3 pr-2">Delete</h1>
@@ -266,7 +271,9 @@
 
         <div class="" ref="postText">
           <transition>
-            <h1 class="pl-2 text-base font-normal font-system">
+            <h1
+              class="pl-2 max-m400:text-sm text-wrap text-base font-normal font-system whitespace-pre-line"
+            >
               {{ postText }}
             </h1>
           </transition>

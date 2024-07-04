@@ -90,11 +90,15 @@
             </UPopover>
           </HomeSidebarContainer>
           <h1
-            class="font-system p-4 text-gray-500 text-sm tracking-wider"
-            style="word-spacing: 5px"
+            class="animate-pulse font-system p-4 text-gray-200 text-sm tracking-wider"
           >
-            Terms of Service Privacy Policy Cookie Policy Accessibility Ads info
-            More © 2024 X Corp.
+            This X-clone was made by DecentCoders. For more information
+            <a
+              href="https://github.com/decent-coders"
+              class="underline"
+              target="_blank"
+              >Click here</a
+            >
           </h1>
         </div>
       </div>

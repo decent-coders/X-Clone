@@ -1,14 +1,19 @@
 <template lang="">
   <NuxtLayout>
     <div class="flex min-h-screen justify-center items-center bg-black">
-      <div class="animate-pulse">
-        <h1 class="text-6xl font-bold text-white">Welcome to Settings</h1>
+      <div class="">
+        <h1
+          class="text-3xl text-center text-wrap m900:text-6xl font-bold text-white"
+        >
+          Welcome to Settings
+        </h1>
+
+        <p
+          class="text-base text-center text-wrap m900:text-2xl m900:mt-3 font-normal px-3 font-system text-white animate-pulse"
+        >
+          The development of this page are is proggress...
+        </p>
       </div>
     </div>
   </NuxtLayout>
 </template>
-<script setup>
-  // definePageMeta({
-  //   layout: "default",
-  // });
-</script>

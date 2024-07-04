@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-black m1100:-ml-14 m1200:-ml-[94px] m900:w-[47%] max-w-[630px] rounded-lg border shadow-[rgba(233,233,233,.4)_0px_0px_15px_3px] border-gray-600 p-2 m900:p-4 mx-2 m600:mx-0"
+    class="bg-black w-full max-w-[350px] m600:max-w-[500px] m1100:-ml-14 m1200:-ml-[94px] m900:w-[47%] m700:max-w-[630px] rounded-lg border shadow-[rgba(233,233,233,.4)_0px_0px_15px_3px] border-gray-600 p-2 m700:p-4 mx-2 m600:mx-0"
   >
     <slot></slot>
     <div class="flex p-2 border-gray-600">

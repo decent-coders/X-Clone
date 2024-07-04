@@ -11,7 +11,7 @@
         class="relative"
       >
         <i
-          class="fa-solid fa-x text-white absolute right-6 cursor-pointer"
+          class="fa-solid fa-x text-white absolute right-3 m600:right-6 cursor-pointer"
           @click="handleSkipModal"
         ></i>
       </postModal>
@@ -208,7 +208,7 @@
 
     <div
       id="sidebarForMobiles"
-      class="w-screen border-t border-gray-600 z-30 text-white flex justify-center fixed bottom-0 items-center m600:hidden"
+      class="menu w-screen border-t border-gray-600 z-30 text-white flex justify-center fixed bottom-0 items-center m600:hidden"
     >
       <NuxtLink
         href="/Home"
@@ -313,6 +313,9 @@
   .active2 {
     --tw-bg-opacity: 1;
     background-color: rgb(24 24 27 / var(--tw-bg-opacity));
+  }
+  .menu {
+    background-color: rgba(24, 24, 27, 0.5);
   }
 
   .modal-bg {

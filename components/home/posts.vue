@@ -98,7 +98,7 @@
                   Hridoy Hawladar
                 </h1>
                 <template #panel>
-                  <div class="w-72 p-4 bg-black cursor-auto">
+                  <div class="w-72 p-4 leading-6 bg-black cursor-auto">
                     <div>
                       <div class="flex justify-between">
                         <div id="ppImage">
@@ -173,7 +173,7 @@
                     @DecentCoders
                   </h2>
                   <template #panel>
-                    <div class="w-72 p-4 bg-black cursor-auto">
+                    <div class="w-72 p-4 leading-6 bg-black cursor-auto">
                       <div>
                         <div class="flex justify-between">
                           <div id="ppImage">

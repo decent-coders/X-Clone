@@ -2,7 +2,7 @@
   <NuxtLayout>
     <div class="flex min-h-screen justify-center relative bg-black">
       <!-- post container -->
-      <HomePostContainer class="m600:mb-0 mb-12" />
+      <HomePostContainer class="my-12 m600:my-0" />
 
       <!-- right sidebar -->
       <div

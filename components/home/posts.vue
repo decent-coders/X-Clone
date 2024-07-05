@@ -11,7 +11,7 @@
           }"
         >
           <img
-            class="h-10 w-10 rounded-full cursor-pointer"
+            class="h-10 w-10 max-m600:z-0 rounded-full cursor-pointer"
             src="/public/me.webp"
             alt=""
           />
@@ -445,9 +445,9 @@
   };
   const handleFollowing = () => {
     postStore.toggleFollow();
-    if (postStore.follow) {
-      window.open("https://x.com/DecentCoders", "_blank");
-    }
+    // if (postStore.follow) {
+    //   window.open("https://x.com/DecentCoders", "_blank");
+    // }
   };
   const details = () => {
     showdetails.value = !showdetails.value;

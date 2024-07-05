@@ -1,11 +1,13 @@
 <template>
   <div
     id="post_preference"
-    class="w-full m600:border-r border-gray-600 text-white"
+    class="w-full relative m600:border-r border-gray-600 text-white"
   >
     <section ref="post option">
-      <div class="border-y border-gray-600 text-white">
-        <div class="flex font-semibold tracking-wide">
+      <div
+        class="max-m600:fixed z-10 max-m600:top-0 max-m600:w-full border-y border-gray-600 text-white"
+      >
+        <div class="flex font-semibold tracking-wide bg-opacity-80 bg-black">
           <div
             class="border-r p-3 border-gray-600 w-1/2 text-center cursor-pointer"
             @click="showAllPosts"
@@ -48,7 +50,6 @@
             :fileUrl="post.fileURL"
             :time="formatPostTime(post.createdAt)"
             @deletePost="handlePostDelete(index)"
-            class="relative"
           />
         </transition-group>
       </div>

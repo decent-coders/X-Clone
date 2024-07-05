@@ -311,8 +311,7 @@
     background-color: rgb(var(--color-gray-800) / var(--tw-bg-opacity));
   }
   .active2 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(24 24 27 / var(--tw-bg-opacity));
+    background-color: rgba(24, 24, 27, 0.5);
   }
   .menu {
     background-color: rgba(24, 24, 27, 0.5);

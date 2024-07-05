@@ -1,11 +1,6 @@
 export default defineNuxtConfig({
-  modules: [
-    "@pinia/nuxt",
-    "@pinia-plugin-persistedstate/nuxt",
-    // "@nuxtjs/supabase",
-    "@nuxtjs/google-fonts",
-    "@nuxt/ui",
-  ],
+  modules: ["@pinia/nuxt", "@pinia-plugin-persistedstate/nuxt", // "@nuxtjs/supabase",
+  "@nuxtjs/google-fonts", "@nuxt/ui"],
 
   googleFonts: {
     families: {

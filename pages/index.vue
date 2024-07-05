@@ -12,11 +12,11 @@
     description: "X-clone by DecentCoders",
     ogTitle: "X-clone",
     ogDescription: "A clone made by Decent Coders",
-    ogImage: "/favicon.ico",
+    ogImage: "/x-home.jpg",
     ogUrl: "https://x-clone-decentcoders.netlify.app/",
     twitterTitle: "X-clone",
     twitterDescription: "A clone made by Decent Coders",
-    twitterImage: "/favicon.ico",
+    twitterImage: "/x-home.jpg",
     twitterCard: "This is a clone of X",
   });
 
@@ -27,8 +27,8 @@
     link: [
       {
         rel: "icon",
-        type: "image/ico",
-        href: "/favicon.ico",
+        type: "image/jpg",
+        href: "/x-home.jpg",
       },
     ],
   });

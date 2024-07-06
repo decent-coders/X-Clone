@@ -7,7 +7,7 @@
       <div id="ppImage" class="w-10 m600:w-12 m900:w-14 h-full">
         <img
           class="h-auto w-10 m600:w-12 m900:w-14 rounded-full"
-          src="/public/me.webp"
+          :src="postStore.ppPath"
           alt=""
         />
       </div>

@@ -187,7 +187,7 @@
                       Add Existing Account
                     </li>
                     <li class="mt-1 hover:bg-zinc-900 p-2 px-4 font-system">
-                      <h1>Log Out @DecentCoders</h1>
+                      <h1>Log Out @{{ postStore.username }}</h1>
                     </li>
                   </ol>
                 </div>

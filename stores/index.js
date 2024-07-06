@@ -4,9 +4,9 @@ import { ref, computed } from "vue";
 export const usePostStore = defineStore("post", () => {
   const postText = ref("");
   const fileURL = ref("");
-  const name = ref("Hridoy Hawladar");
+  const name = ref("Demo Name");
   const username = ref("DecentCoders");
-  const ppPath = ref("/me.webp");
+  const ppPath = ref("/download.png");
   const postError = ref(false);
   const showEmojiPicker = ref(false);
   const activeShowAllPosts = ref(true);
@@ -96,6 +96,6 @@ export const usePostStore = defineStore("post", () => {
     name,
     username,
     ppPath,
-    setppPath, // Add this line
+    setppPath,
   };
 });

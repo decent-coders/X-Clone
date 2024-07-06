@@ -3,7 +3,7 @@
     <img
       v-if="loading"
       class="h-24 w-24 animate-pulse"
-      src="/x-home.webp"
+      src="/x-home.jpg"
       alt=""
     />
 

@@ -34,7 +34,7 @@
               class="flex w-fit p-2 rounded-full hover:bg-gray-700"
             >
               <img
-                src="/x-home.webp"
+                src="/x-home.jpg"
                 class="w-12 h-11 rounded-full"
                 alt="X Logo"
               />

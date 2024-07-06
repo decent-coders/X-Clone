@@ -42,12 +42,12 @@
                   <h1
                     class="font-semibold font-system cursor-pointer hover:underline"
                   >
-                    Hridoy Hawladar
+                    {{ postStore.name }}
                   </h1>
                   <h2
                     class="text-gray-500 hover:underline font-system tracking-wider cursor-pointer"
                   >
-                    @DecentCoders
+                    @{{ postStore.username }}
                   </h2>
                 </div>
                 <div id="ppbio" class="font-system font-normal cursor-text">
@@ -95,7 +95,7 @@
                 <h1
                   class="text-sm m500:text-base font-semibold font-system pe-2"
                 >
-                  Hridoy Hawladar
+                  {{ postStore.name }}
                 </h1>
                 <template #panel>
                   <div class="w-72 p-4 leading-6 bg-black cursor-auto">
@@ -123,12 +123,12 @@
                         <h1
                           class="font-semibold font-system cursor-pointer hover:underline"
                         >
-                          Hridoy Hawladar
+                          {{ postStore.name }}
                         </h1>
                         <h2
                           class="text-gray-500 hover:underline font-system tracking-wider cursor-pointer"
                         >
-                          @DecentCoders
+                          @{{ postStore.username }}
                         </h2>
                       </div>
                       <div
@@ -170,7 +170,7 @@
                   <h2
                     class="text-sm m500:text-base text-gray-500 font-system tracking-wider"
                   >
-                    @DecentCoders
+                    @{{ postStore.username }}
                   </h2>
                   <template #panel>
                     <div class="w-72 p-4 leading-6 bg-black cursor-auto">
@@ -198,12 +198,12 @@
                           <h1
                             class="font-semibold font-system cursor-pointer hover:underline"
                           >
-                            Hridoy Hawladar
+                            {{ postStore.name }}
                           </h1>
                           <h2
                             class="text-gray-500 hover:underline font-system tracking-wider cursor-pointer"
                           >
-                            @DecentCoders
+                            @{{ postStore.username }}
                           </h2>
                         </div>
                         <div
@@ -480,7 +480,7 @@
   const handleFollowing = () => {
     postStore.toggleFollow();
     // if (postStore.follow) {
-    //   window.open("https://x.com/DecentCoders", "_blank");
+    //   window.open("https://x.com/{{ postStore.username }}", "_blank");
     // }
   };
   const details = () => {

@@ -12,7 +12,7 @@
         >
           <img
             class="h-10 w-10 max-m600:z-0 rounded-full cursor-pointer"
-            src="/public/me.webp"
+            :src="postStore.ppPath"
             alt=""
           />
           <template #panel>
@@ -22,7 +22,7 @@
                   <div id="ppImage">
                     <img
                       class="h-16 mb-2 w-16 rounded-full cursor-pointer"
-                      src="/public/me.webp"
+                      :src="postStore.ppPath"
                       alt=""
                     />
                   </div>
@@ -104,7 +104,7 @@
                         <div id="ppImage">
                           <img
                             class="h-16 mb-2 w-16 rounded-full cursor-pointer"
-                            src="/public/me.webp"
+                            :src="postStore.ppPath"
                             alt=""
                           />
                         </div>
@@ -179,7 +179,7 @@
                           <div id="ppImage">
                             <img
                               class="h-16 mb-2 w-16 rounded-full cursor-pointer"
-                              src="/public/me.webp"
+                              :src="postStore.ppPath"
                               alt=""
                             />
                           </div>
@@ -291,10 +291,28 @@
               }"
               :openDelay="1000"
             >
-              <div class="flex cursor-pointer hover:text-blue-500 items-center">
-                <i class="fa-regular fa-comment"></i>
-                <p class="m-0 p-0 ps-2 text-sm font-system">11</p>
-              </div>
+              <UPopover
+                :ui="{
+                  background: 'bg-gray-900',
+                  ring: 'ring-gray-600',
+                  rounded: 'rounded-xl',
+                }"
+              >
+                <div
+                  class="flex cursor-pointer hover:text-blue-500 items-center"
+                >
+                  <i class="fa-regular fa-comment"></i>
+                  <p class="m-0 p-0 ps-2 text-sm font-system">11</p>
+                </div>
+
+                <template #panel>
+                  <div
+                    class="w-32 text-sm text-gray-400 px-4 py-2 bg-black cursor-default font-system text-center ring ring-gray-600"
+                  >
+                    <h1 class="text-red-500">You cant reply your post</h1>
+                  </div>
+                </template>
+              </UPopover>
               <template #text>
                 <span>Reply</span>
               </template>
@@ -309,9 +327,25 @@
               }"
               :openDelay="1000"
             >
-              <i
-                class="fa-solid fa-repeat cursor-pointer hover:text-green-500"
-              ></i>
+              <UPopover
+                :ui="{
+                  background: 'bg-gray-900',
+                  ring: 'ring-gray-600',
+                  rounded: 'rounded-xl',
+                }"
+              >
+                <i
+                  class="fa-solid fa-repeat cursor-pointer hover:text-green-500"
+                ></i>
+
+                <template #panel>
+                  <div
+                    class="max-w-36 text-sm text-gray-400 px-4 py-2 bg-black cursor-default font-system text-center ring ring-gray-600"
+                  >
+                    <h1 class="text-red-500">You cant repost your post</h1>
+                  </div>
+                </template>
+              </UPopover>
               <template #text>
                 <span>Repost</span>
               </template>
@@ -402,9 +436,9 @@
 
                     <template #panel>
                       <div
-                        class="w-36 text-sm text-gray-400 px-4 py-2 bg-black cursor-default font-system text-center ring ring-gray-600"
+                        class="w-32 text-sm text-gray-400 px-4 py-2 bg-black cursor-default font-system text-center ring ring-gray-600"
                       >
-                        <h1>Haven't added this feature Sorry!!</h1>
+                        <h1 class="text-red-500">You cant share your post</h1>
                       </div>
                     </template>
                   </UPopover>

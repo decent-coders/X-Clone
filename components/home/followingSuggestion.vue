@@ -13,11 +13,7 @@
         >
           <div ref="ppDetails" class="flex flex-row justify-start relative">
             <div class="pp-image">
-              <img
-                class="h-10 w-10 rounded-full"
-                :src="pp"
-                :alt="`${name}'s profile picture`"
-              />
+              <img class="h-10 w-10 rounded-full" :src="pp" alt="" />
             </div>
             <div class="pp-name ms-2">
               <h1

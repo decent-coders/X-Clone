@@ -107,6 +107,8 @@
 </template>
 
 <script setup>
+  const postStore = usePostStore();
+
   const trends = ref([
     { name: "#100daysOfCoding", numberOfPosts: "3,964 posts" },
     { name: "#VueJS", numberOfPosts: "2,134 posts" },
@@ -114,16 +116,17 @@
     { name: "#JavaScript", numberOfPosts: "5,241 posts" },
     { name: "#WebDevelopment", numberOfPosts: "4,567 posts" },
   ]);
+
   const followSuggeston = ref([
     {
-      name: " Hridoy Hawladar",
-      username: "@DecentCoders",
-      pp: "/me.webp",
+      name: postStore.name,
+      username: postStore.username,
+      pp: postStore.ppPath,
     },
     {
-      name: " Hridoy Hawladar",
-      username: "@DecentCoders",
-      pp: "/me.webp",
+      name: postStore.name,
+      username: postStore.username,
+      pp: postStore.ppPath,
     },
     {
       name: " Hridoy Hawladar",

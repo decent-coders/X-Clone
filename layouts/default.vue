@@ -3,7 +3,7 @@
     <div
       @click="handleSkipModal"
       v-if="showPostModal"
-      class="h-full max-h-[90vh] w-screen fixed right-0 top-0 z-50 flex justify-center items-start pt-14 modal-bg overflow-auto"
+      class="h-screen w-screen fixed right-0 top-0 z-50 flex justify-center items-start pt-14 modal-bg overflow-auto"
     >
       <postModal
         @click.stop="skipSkipping"
@@ -34,7 +34,7 @@
               class="flex w-fit p-2 rounded-full hover:bg-gray-700"
             >
               <img
-                src="@/public/x-home.jpg"
+                src="/x-home.webp"
                 class="w-12 h-11 rounded-full"
                 alt="X Logo"
               />
@@ -133,7 +133,7 @@
               </li>
               <li class="pr-2">
                 <button
-                  class="m1100:w-full mx-auto flex justify-center items-center bg-sky-600 hover:bg-sky-700 rounded-full py-3 m1100:py-2 px-3 m1100:px-0 font-normal mt-2"
+                  class="m1100:w-full mx-auto flex justify-center items-center bg-sky-600 hover:bg-sky-700 rounded-full py-3 m1100:py-2 px-3 m1100:px-0 font-normal mt-2 mb-2"
                   @click="handleAddPost"
                 >
                   <span class="hidden m1100:block">Post</span>
@@ -160,17 +160,17 @@
                 >
                   <div id="ppImage">
                     <img
-                      class="w-10 rounded-full"
-                      src="@/public/me.webp"
+                      class="w-10 h-10 rounded-full"
+                      :src="postStore.ppPath"
                       alt=""
                     />
                   </div>
                   <div id="ppName" class="ms-2 hidden m1100:block">
                     <h1 class="text-base font-semibold font-system">
-                      Hridoy Hawladar
+                      {{ postStore.name }}
                     </h1>
                     <h2 class="text-gray-500 font-system tracking-wider">
-                      @DecentCoders
+                      @{{ postStore.username }}
                     </h2>
                   </div>
                   <i

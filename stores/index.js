@@ -4,12 +4,14 @@ import { ref, computed } from "vue";
 export const usePostStore = defineStore("post", () => {
   const postText = ref("");
   const fileURL = ref("");
+  const name = ref("Hridoy Hawladar");
+  const username = ref("DecentCoders");
+  const ppPath = ref("/me.webp");
   const postError = ref(false);
   const showEmojiPicker = ref(false);
   const activeShowAllPosts = ref(true);
   const activeShowFollowedPosts = ref(false);
   const posts = ref([]);
-
   const follow = ref(false);
   const followMssg = ref("Follow");
 
@@ -67,6 +69,10 @@ export const usePostStore = defineStore("post", () => {
     }
   };
 
+  const setppPath = (newPath) => {
+    ppPath.value = newPath;
+  };
+
   return {
     postText,
     fileURL,
@@ -87,5 +93,9 @@ export const usePostStore = defineStore("post", () => {
     reversedPosts,
     toggleFollow,
     formatPostTime,
+    name,
+    username,
+    ppPath,
+    setppPath, // Add this line
   };
 });

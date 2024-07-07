@@ -183,10 +183,14 @@
                   class="w-full py-3 bg-black cursor-pointer font-system ring-1 ring-gray-600"
                 >
                   <ol class="text-sm font-semibold">
-                    <li class="hover:bg-zinc-900 font-system p-2 px-4">
+                    <li
+                      class="hover:bg-zinc-900 font-system p-2 px-4 text-white"
+                    >
                       Add Existing Account
                     </li>
-                    <li class="mt-1 hover:bg-zinc-900 p-2 px-4 font-system">
+                    <li
+                      class="mt-1 hover:bg-zinc-900 p-2 px-4 font-system text-white"
+                    >
                       <h1>Log Out @{{ postStore.username }}</h1>
                     </li>
                   </ol>

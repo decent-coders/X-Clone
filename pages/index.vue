@@ -13,17 +13,20 @@
           class="flex min-h-full flex-col justify-center px-6 pt-7 pb-12 lg:px-8"
         >
           <div class="w-full flex justify-center">
-            <img
-              class="h-20 cursor-pointer w-20 mb-3 rounded-full"
-              :src="ppPath"
-              alt="Profile Photo"
-              @click="handlePp"
-            />
+            <div class="relative">
+              <img
+                class="h-20 cursor-pointer w-20 mb-3 rounded-full"
+                :src="ppPath"
+                alt="Profile Photo"
+                @click="handlePp"
+              />
+            </div>
             <input
               type="file"
               id="file"
               ref="file"
               style="display: none"
+              accept="image/*"
               @change="handleFileChange"
             />
           </div>
@@ -38,13 +41,10 @@
                 >
                 <div class="mt-2">
                   <input
-                    id="name"
-                    name="name"
                     type="text"
-                    autocomplete="name"
                     required
                     v-model="postStore.name"
-                    class="block w-full rounded-md border-0 py-1.5 text-gray-200 px-2 shadow-sm ring-1 ring-inset focus-visible:outline-none ring-gray-300 sm:text-sm sm:leading-6"
+                    class="block w-full border-1 border-white rounded-md border-0 py-1.5 text-gray-200 px-2 shadow-sm ring-1 ring-inset focus-visible:outline-none ring-gray-300 sm:text-sm sm:leading-6 bg-black"
                   />
                   <span
                     v-if="validationMessages.name"
@@ -71,8 +71,7 @@
                     </div>
                     <input
                       type="text"
-                      name="username"
-                      class="block w-full rounded-md border-0 py-1.5 text-gray-200 px-2 shadow-sm ring-1 ring-inset focus-visible:outline-none ring-gray-300 sm:text-sm sm:leading-6 pl-7"
+                      class="block w-full rounded-md border-1 border-white py-1.5 text-gray-200 px-2 shadow-sm ring-1 ring-inset focus-visible:outline-none ring-gray-300 sm:text-sm sm:leading-6 pl-7 bg-black"
                       v-model="sanitizedUsername"
                     />
                   </div>

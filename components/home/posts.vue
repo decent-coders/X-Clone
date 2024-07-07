@@ -438,7 +438,7 @@
                       <div
                         class="w-32 text-sm text-gray-400 px-4 py-2 bg-black cursor-default font-system text-center ring ring-gray-600"
                       >
-                        <h1 class="text-red-500">You cant share your post</h1>
+                        <h1>Haven't added this feature Sorry!!</h1>
                       </div>
                     </template>
                   </UPopover>

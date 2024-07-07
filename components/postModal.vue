@@ -6,7 +6,7 @@
     <div class="flex p-2 border-gray-600">
       <div id="ppImage" class="w-10 m600:w-12 m900:w-14 h-full">
         <img
-          class="h-auto w-10 m600:w-12 m900:w-14 rounded-full"
+          class="h-10 w-10 m600:w-12 10 m600:h-12 m900:w-14 m900:h-14 rounded-full"
           :src="postStore.ppPath"
           alt=""
         />
@@ -20,7 +20,7 @@
             placeholder="What is happening?!"
             @input="textAreaHeight"
             v-model="postText"
-            class="bg-transparent w-full outline-none mb-1 font-system text-base m600:text-xl"
+            class="bg-transparent w-full outline-none mb-1 font-system text-base m600:text-xl text-white"
           ></textarea>
           <div v-if="fileURL" class="my-3">
             <img

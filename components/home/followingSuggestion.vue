@@ -34,7 +34,7 @@
           </template>
         </UPopover>
         <button
-          class="rounded-full -mt-1 flex items-center justify-center px-4 h-8 bg-slate-200 hover:bg-slate-300 font-bold text-black text-sm tracking-[1px] z-10 absolute right-3 font-system"
+          class="rounded-full mb-3 flex items-center justify-center px-4 h-8 bg-slate-200 hover:bg-slate-300 font-bold text-black text-sm tracking-[1px] z-10 absolute right-3 font-system"
           :class="{
             'text-gray-300 border h-9 border-gray-600 bg-zinc-950  hover:bg-zinc-900':
               follow,

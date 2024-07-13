@@ -20,7 +20,16 @@
                 alt="Profile Photo"
                 @click="handlePp"
               />
+              <transition>
+                <div
+                  class="tooltiptext bg-gray-800 font-system text-gray-300 cursor-default"
+                  v-if="ppTips"
+                >
+                  Upload a photo
+                </div>
+              </transition>
             </div>
+
             <input
               type="file"
               id="file"
@@ -39,7 +48,15 @@
                   class="block text-sm font-medium leading-6 text-gray-300"
                   >Name</label
                 >
-                <div class="mt-2">
+                <div class="mt-2 relative">
+                  <transition>
+                    <div
+                      class="tooltiptext mb-1 font-system bg-gray-800 text-gray-300 cursor-default"
+                      v-if="nameTips"
+                    >
+                      Enter your name
+                    </div>
+                  </transition>
                   <input
                     type="text"
                     required
@@ -106,12 +123,22 @@
 
 <script setup>
   const postStore = usePostStore();
-
+  const ppTips = ref(false);
+  const nameTips = ref(false);
   const loading = ref(false);
   const validationMessages = ref({
     name: "",
     username: "",
     general: "",
+  });
+
+  onMounted(() => {
+    setTimeout(() => {
+      ppTips.value = true;
+      setTimeout(() => {
+        ppTips.value = false;
+      }, 5000);
+    }, 1000);
   });
 
   // Computed property to remove spaces from username
@@ -155,6 +182,7 @@
   };
 
   const handlePp = () => {
+    ppTips.value = false;
     const fileInput = document.getElementById("file");
     fileInput.click();
   };
@@ -189,11 +217,22 @@
 
           postStore.setppPath(canvas.toDataURL("image/jpeg"));
           validationMessages.value.general = ""; // Clear general validation message on successful file change
+
+          // Show name tips after 1 second
+          showNameTips();
         };
         image.src = reader.result;
       };
       reader.readAsDataURL(file);
     }
+  };
+  const showNameTips = () => {
+    setTimeout(() => {
+      nameTips.value = true;
+      setTimeout(() => {
+        nameTips.value = false;
+      }, 5000);
+    }, 1000);
   };
 
   const ppPath = computed(() => postStore.ppPath);
@@ -237,5 +276,27 @@
   .v-enter-from,
   .v-leave-to {
     scale: 0.1;
+  }
+  .tooltiptext {
+    width: 137px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 107%;
+    left: 51%;
+    margin-left: -60px;
+  }
+  .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(63 60 60) transparent transparent transparent;
   }
 </style>

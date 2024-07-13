@@ -11,6 +11,7 @@
           alt=""
         />
       </div>
+
       <div class="flex-1">
         <div class="border-b border-gray-600 ml-3 mr-5 mt-2 tracking-wider">
           <textarea

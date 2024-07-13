@@ -30,7 +30,7 @@
               {{ premiumDetails }}
             </h2>
             <button
-              class="px-4 tracking-wider flex justify-center items-center bg-sky-600 hover:bg-sky-700 rounded-full py-2 font-bold mt-2 text-base"
+              class="px-4 tracking-wider flex justify-center items-center bg-sky-600 text-gray-200 hover:bg-sky-700 rounded-full py-2 font-bold mt-2 text-base"
               :class="{
                 'text-gray-300 border  border-gray-600 bg-zinc-950  hover:bg-zinc-900':
                   Subscribe,
@@ -103,12 +103,67 @@
         </div>
       </div>
     </div>
+    <div class="relative m600:hidden">
+      <button
+        ref="post button on mobile phone"
+        class="flex justify-center items-center bg-sky-600 hover:bg-sky-700 rounded-full py-2 px-3 font-normal fixed bottom-[65px] right-5 z-20"
+        @click="handleAddPost2"
+      >
+        <i class="fa-regular fa-pen-to-square text-xl"></i>
+      </button>
+      <transition>
+        <div
+          class="tooltiptexta absolute bg-gray-800 font-system text-gray-300 cursor-default text-base right-3 top-[-9.3rem]"
+          v-if="ppTips2"
+        >
+          Create a post
+        </div>
+      </transition>
+    </div>
+    <transition>
+      <div
+        @click="handleSkipModal2"
+        v-if="showPostModal"
+        class="h-screen m600:hidden w-screen fixed right-0 top-0 z-50 flex justify-center items-start pt-14 modal-bg overflow-auto"
+      >
+        <postModal
+          @click.stop="skipSkipping2"
+          @handlePost="handlePost2"
+          class="relative"
+        >
+          <i
+            class="fa-solid fa-x text-white absolute right-3 m600:right-6 cursor-pointer"
+            @click="handleSkipModal2"
+          ></i>
+        </postModal>
+      </div>
+    </transition>
   </NuxtLayout>
 </template>
 
 <script setup>
   const postStore = usePostStore();
-
+  const ppTips2 = ref(false);
+  const showPostModal = ref(false);
+  const skipSkipping2 = () => {};
+  const handlePost2 = (data) => {
+    postStore.addPost(data);
+    showPostModal.value = false;
+  };
+  const handleSkipModal2 = () => {
+    showPostModal.value = false;
+    postStore.setPostText("");
+    postStore.setFileURL("");
+  };
+  const handleAddPost2 = () => {
+    ppTips2.value = false;
+    showPostModal.value = true;
+  };
+  onMounted(() => {
+    setTimeout(() => {
+      ppTips2.value = true;
+    }, 4000);
+  });
   const trends = ref([
     { name: "#100daysOfCoding", numberOfPosts: "3,964 posts" },
     { name: "#VueJS", numberOfPosts: "2,134 posts" },
@@ -187,7 +242,36 @@
 </script>
 
 <style scoped>
+  .v-enter-active,
+  .v-leave-active {
+    transition: 0.5s;
+    scale: 1;
+  }
+
+  .v-enter-from,
+  .v-leave-to {
+    scale: 0.5;
+    opacity: 0;
+  }
   :focus-visible {
     outline: transparent;
+  }
+  .tooltiptexta {
+    width: 122px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 5px;
+    z-index: 1;
+  }
+  .tooltiptexta::after {
+    content: "";
+    margin-left: -5px;
+    border-width: 5px;
+    top: 100%;
+    position: absolute;
+    left: 78%;
+    border-style: solid;
+    border-color: rgb(63 60 60) transparent transparent transparent;
   }
 </style>

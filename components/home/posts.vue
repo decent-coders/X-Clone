@@ -302,7 +302,7 @@
                   class="flex cursor-pointer hover:text-blue-500 items-center"
                 >
                   <i class="fa-regular fa-comment"></i>
-                  <p class="m-0 p-0 ps-2 text-sm font-system">11</p>
+                  <p class="m-0 p-0 ps-2 text-sm font-system">0</p>
                 </div>
 
                 <template #panel>
@@ -461,7 +461,7 @@
   const showdetails = ref(false);
   const postLiked = ref(false);
   const bookmarked = ref(false);
-  const Likes = ref(11);
+  const Likes = ref(0);
 
   const showDetailsSkip = () => {
     showdetails.value = false;

@@ -101,7 +101,7 @@
           </UPopover>
         </div>
         <button
-          class="flex justify-center items-center p-2 tracking-wider font-system font-semibold rounded-full px-4 bg-sky-600 hover:bg-sky-700 text-base"
+          class="flex justify-center items-center p-2 tracking-wider font-system font-semibold text-gray-200 rounded-full px-4 bg-sky-600 hover:bg-sky-700 text-base"
           @click="emitPost"
         >
           Post
@@ -181,6 +181,7 @@
   };
 
   const emitPost = () => {
+    postStore.ppTips = false;
     if (!postStore.postText && !postStore.fileURL) {
       postStore.togglePostError();
       return;

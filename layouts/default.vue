@@ -60,6 +60,7 @@
                   href="/Explore"
                   class="flex text-white items-center ms-0 py-2 m1100:px-4 m-1 rounded-full hover:bg-gray-700 justify-center m1100:justify-start group font-normal"
                   exact-active-class="active"
+                  @click="hideppTips"
                 >
                   <div id="icon" class="m1100:w-7 flex justify-center">
                     <i class="fa-solid fa-magnifying-glass text-2xl"></i>
@@ -72,6 +73,7 @@
                   href="/Notifications"
                   class="flex text-white items-center ms-0 py-2 m1100:px-4 m-1 rounded-full hover:bg-gray-700 justify-center m1100:justify-start group font-normal"
                   exact-active-class="active"
+                  @click="hideppTips"
                 >
                   <div id="icon" class="m1100:w-7 flex justify-centerr">
                     <i class="fa-regular fa-bell text-2xl"></i>
@@ -84,16 +86,18 @@
                   href="/Messages"
                   class="flex text-white items-center ms-0 py-2 m1100:px-4 m-1 rounded-full hover:bg-gray-700 justify-center m1100:justify-start group font-normal"
                   exact-active-class="active"
+                  @click="hideppTips"
                 >
                   <i class="fa-regular fa-envelope m1100:w-7 text-2xl"></i>
                   <span class="ms-3 hidden m1100:block">Messages</span>
                 </NuxtLink>
               </li>
-              <li>
+              <li class="hidden m1400:block">
                 <NuxtLink
                   href="/Communities"
                   class="flex text-white items-center ms-0 py-2 m1100:px-4 m-1 rounded-full hover:bg-gray-700 justify-center m1100:justify-start group font-normal"
                   exact-active-class="active"
+                  @click="hideppTips"
                 >
                   <i class="fa-solid fa-users m1100:w-7 text-2xl"></i>
                   <span class="ms-3 hidden m1100:block">Communities</span>
@@ -104,6 +108,7 @@
                   href="/Profile"
                   class="flex text-white items-center ms-0 py-2 m1100:px-4 m-1 rounded-full hover:bg-gray-700 justify-center m1100:justify-start group font-normal"
                   exact-active-class="active"
+                  @click="hideppTips"
                 >
                   <i
                     class="fa-solid fa-user-large m1100:w-7 m900:ps-1 text-xl m1100:text-lg"
@@ -116,6 +121,7 @@
                   href="/Membership"
                   class="flex text-white items-center ms-0 py-2 m1100:px-4 m-1 rounded-full hover:bg-gray-700 justify-center m1100:justify-start group font-normal"
                   exact-active-class="active"
+                  @click="hideppTips"
                 >
                   <i class="fa-brands fa-web-awesome m1100:w-7 text-xl"></i>
                   <span class="ms-3 hidden m1100:block">Premium</span>
@@ -126,20 +132,22 @@
                   href="/Settings"
                   class="flex text-white items-center ms-0 py-2 m1100:px-4 m-1 rounded-full hover:bg-gray-700 justify-center m1100:justify-start group font-normal"
                   exact-active-class="active"
+                  @click="hideppTips"
                 >
                   <i class="fa-solid fa-gear m1100:w-7 text-2xl"></i>
                   <span class="ms-3 hidden m1100:block">Settings</span>
                 </NuxtLink>
               </li>
               <li class="pr-2">
-                <button
-                  class="m1100:w-full mx-auto flex justify-center items-center bg-sky-600 hover:bg-sky-700 rounded-full py-3 m1100:py-2 px-3 m1100:px-0 font-normal mt-2 mb-2"
-                  @click="handleAddPost"
-                >
-                  <span class="hidden m1100:block">Post</span>
-
-                  <i class="fa-regular fa-pen-to-square m1100:hidden"></i>
-                </button>
+                <div>
+                  <button
+                    class="m1100:w-full mx-auto flex justify-center items-center bg-sky-600 hover:bg-sky-700 rounded-full py-3 m1100:py-2 px-3 m1100:px-0 font-normal mt-2 mb-2 relative"
+                    @click="handleAddPost"
+                  >
+                    <span class="hidden m1100:block">Post</span>
+                    <i class="fa-regular fa-pen-to-square m1100:hidden"></i>
+                  </button>
+                </div>
               </li>
             </ul>
 
@@ -202,14 +210,6 @@
       </div>
     </div>
 
-    <button
-      ref="post button on mobile phone"
-      class="m600:hidden flex justify-center items-center bg-sky-600 hover:bg-sky-700 rounded-full py-2 px-3 font-normal fixed bottom-[65px] right-5 z-20"
-      @click="handleAddPost"
-    >
-      <i class="fa-regular fa-pen-to-square text-xl"></i>
-    </button>
-
     <div
       id="sidebarForMobiles"
       class="menu w-screen border-t border-gray-600 z-30 text-white flex justify-center fixed bottom-0 items-center m600:hidden"
@@ -251,12 +251,12 @@
         </div>
       </NuxtLink>
       <NuxtLink
-        href="/Settings"
+        href="/profile"
         class="flex w-[20%] text-white items-center py-2 px-4 rounded-md hover:bg-zinc-900 justify-center font-normal"
-        exact-active-class="active2"
+        exact-active-class="active2 "
       >
         <div id="icon">
-          <i class="fa-solid fa-gear m1100:w-7 text-2xl"></i>
+          <i class="fa-solid fa-user-large text-2xl"></i>
         </div>
       </NuxtLink>
     </div>
@@ -332,5 +332,24 @@
   .v-enter-from,
   .v-leave-to {
     opacity: 0;
+  }
+  .tooltiptexta {
+    width: 122px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 5px;
+    position: absolute;
+    z-index: 1;
+  }
+  .tooltiptexta::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(63 60 60) transparent transparent transparent;
   }
 </style>

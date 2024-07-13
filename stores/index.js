@@ -13,6 +13,7 @@ export const usePostStore = defineStore("post", () => {
   const activeShowFollowedPosts = ref(false);
   const posts = ref([]);
   const follow = ref(false);
+  const ppTips = ref(true);
   const followMssg = ref("Follow");
 
   const setPostText = (text) => {
@@ -97,5 +98,6 @@ export const usePostStore = defineStore("post", () => {
     username,
     ppPath,
     setppPath,
+    ppTips,
   };
 });

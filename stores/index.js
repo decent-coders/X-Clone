@@ -74,6 +74,9 @@ export const usePostStore = defineStore("post", () => {
     ppPath.value = newPath;
   };
 
+  const isPostsEmpty = computed(() => {
+    return posts.value.length === 0;
+  });
   return {
     postText,
     fileURL,
@@ -99,5 +102,6 @@ export const usePostStore = defineStore("post", () => {
     ppPath,
     setppPath,
     ppTips,
+    isPostsEmpty,
   };
 });

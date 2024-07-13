@@ -41,7 +41,7 @@
     />
     <div id="post-container">
       <div>
-        <transition-group name="fade" tag="div">
+        <transition-group name="fade">
           <HomePosts
             v-if="!activeShowFollowedPosts"
             v-for="(post, index) in reversedPosts"

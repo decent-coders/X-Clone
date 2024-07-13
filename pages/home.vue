@@ -113,7 +113,7 @@
       </button>
       <transition>
         <div
-          class="tooltiptexta absolute bg-gray-800 font-system text-gray-300 cursor-default text-base right-3 top-[-9.3rem]"
+          class="tooltiptexta fixed bg-gray-800 font-system text-gray-300 cursor-default text-base right-3 bottom-[115px]"
           v-if="ppTips2"
         >
           Create a post
@@ -160,10 +160,13 @@
     showPostModal.value = true;
   };
   onMounted(() => {
-    setTimeout(() => {
-      ppTips2.value = true;
-    }, 4000);
+    if (postStore.isPostsEmpty) {
+      setTimeout(() => {
+        ppTips2.value = true;
+      }, 4000);
+    }
   });
+
   const trends = ref([
     { name: "#100daysOfCoding", numberOfPosts: "3,964 posts" },
     { name: "#VueJS", numberOfPosts: "2,134 posts" },

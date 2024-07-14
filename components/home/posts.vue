@@ -278,9 +278,10 @@
             </h1>
           </transition>
         </div>
-        <div class="pr-4 mt-2" ref="fileURL">
-          <img class="rounded-3xl" :src="fileUrl" alt="" />
+        <div v-if="fileUrl" class="pr-4 mt-2" ref="fileURL">
+          <img class="rounded-3xl max-h-[80vh] mx-auto" :src="fileUrl" alt="" />
         </div>
+
         <div class="pt-3 flex text-gray-500 justify-between text-lg pr-6">
           <div class="flex items-center">
             <UTooltip
@@ -500,7 +501,7 @@
     },
     fileUrl: {
       type: String,
-      required: true,
+      required: false,
     },
     time: {
       type: String,

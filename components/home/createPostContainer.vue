@@ -193,7 +193,6 @@
     postStore.setPostText("");
     postStore.setFileURL("");
     textarea.style.height = "auto";
-    textarea.style.height = `auto`;
   };
 
   const handlePosteror = () => {
@@ -203,7 +202,6 @@
   const postText = computed({
     get: () => postStore.postText,
     set: (newValue) => {
-      // Handle setting logic here (e.g., validation)
       postStore.setPostText(newValue);
     },
   });

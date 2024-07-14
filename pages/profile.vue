@@ -329,4 +329,26 @@
     scale: 0.5;
     opacity: 0;
   }
+  .tooltiptext {
+    width: 137px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 107%;
+    left: 51%;
+    margin-left: -60px;
+  }
+  .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(63 60 60) transparent transparent transparent;
+  }
 </style>

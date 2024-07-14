@@ -75,7 +75,9 @@
         <p class="text-2xl m600:text-3xl animate-pulse">Nothing Posted yet!!</p>
       </div>
       <div id="followposts" v-if="activeShowFollowedPosts">
-        <div class="h-[80vh] w-full flex flex-col items-center justify-center">
+        <div
+          class="h-[80vh] w-full flex flex-col items-center justify-center max-m600:fixed top-0"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

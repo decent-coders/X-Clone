@@ -105,6 +105,7 @@
     </div>
     <div class="relative m600:hidden">
       <button
+        v-if="postStore.activeShowAllPosts"
         ref="post button on mobile phone"
         class="flex justify-center items-center bg-sky-600 hover:bg-sky-700 rounded-full py-2 px-3 font-normal fixed bottom-[65px] right-5 z-20"
         @click="handleAddPost2"
@@ -113,8 +114,8 @@
       </button>
       <transition>
         <div
+          v-if="postStore.activeShowAllPosts & ppTips2"
           class="tooltiptexta fixed bg-gray-800 font-system text-gray-300 cursor-default text-base right-3 bottom-[115px]"
-          v-if="ppTips2"
         >
           Create a post
         </div>
@@ -163,7 +164,7 @@
     if (postStore.isPostsEmpty) {
       setTimeout(() => {
         ppTips2.value = true;
-      }, 4000);
+      }, 2000);
     }
   });
 
